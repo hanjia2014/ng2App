@@ -1,0 +1,12 @@
+﻿<input [(ngModel)]="item.Name" placeholder="Name"/>
+Hearings ({{item.HearingOfEvidences.length}})
+<multiselect (modelUpdated)="subItemTypeSelected($event)"
+             [multiple]="false"
+             [collection]="subItemTypes"
+             [label]="'name'"
+             [mutiselectModel]="multiselectModel">
+</multiselect>
+<img src="../../images/plus-red.png" width="20" (click)="addSubItem()" />
+<div *ngFor="let hearing of item.HearingOfEvidences">
+    <hearing-of-evidence [hearing]="hearing"></hearing-of-evidence>
+</div>
