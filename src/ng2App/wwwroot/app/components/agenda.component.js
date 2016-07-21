@@ -21,8 +21,8 @@ var AgendaComponent = (function () {
             _this.agenda.ItemOfBusinesses.push(item);
         };
     }
-    AgendaComponent.prototype.itemListener = function (hearing) {
-        alert(hearing.Name);
+    AgendaComponent.prototype.itemListener = function (item) {
+        console.log(item.Name + ' created');
     };
     __decorate([
         core_1.Input(), 

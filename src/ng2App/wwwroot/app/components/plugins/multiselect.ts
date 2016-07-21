@@ -98,6 +98,7 @@ export class Multiselect {
         this.mutiselectModel = item;
         this.updateSimpleHeader();
         this.modelUpdated.emit(this.mutiselectModel);
+        this.toggleSelect();
     }
 
     updateMultipleModel() {

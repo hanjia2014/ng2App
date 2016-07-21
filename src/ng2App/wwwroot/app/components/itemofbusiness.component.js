@@ -20,7 +20,7 @@ var ItemOfBusinessComponent = (function () {
         this.multiselectModel = [];
         this.subItemTypes = [];
         this.addSubItem = function () {
-            var subItemType = _this.multiselectModel[name];
+            var subItemType = _this.multiselectModel['name'];
             if (subItemType == "Hearing Of Evidence")
                 _this.addHearing();
         };
