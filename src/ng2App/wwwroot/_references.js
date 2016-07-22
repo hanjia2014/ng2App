@@ -1,5 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="app/components/agenda.component.js" />
+/// <reference path="app/components/agenda.footer.component.js" />
 /// <reference path="app/components/app.component.js" />
 /// <reference path="app/components/bootstrap.js" />
 /// <reference path="app/components/hearingofevidence.component.js" />

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var agenda_1 = require('../models/agenda');
 var itemofbusiness_1 = require('../models/itemofbusiness');
 var itemofbusiness_component_1 = require('./itemofbusiness.component');
+var agenda_footer_component_1 = require('./agenda.footer.component');
 var AgendaComponent = (function () {
     function AgendaComponent() {
         var _this = this;
@@ -33,7 +34,7 @@ var AgendaComponent = (function () {
             selector: 'agenda-detail',
             templateUrl: "app/templates/agenda-detail.html",
             styles: [""],
-            directives: [itemofbusiness_component_1.ItemOfBusinessComponent],
+            directives: [itemofbusiness_component_1.ItemOfBusinessComponent, agenda_footer_component_1.AgendaFooterComponent],
             providers: []
         }), 
         __metadata('design:paramtypes', [])

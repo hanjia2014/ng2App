@@ -30,7 +30,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',
-            template: "<h1>Agenda</h1>\n                <agenda-detail [agenda]=\"agenda\"></agenda-detail>",
+            template: "<h1>Agenda</h1>\n                <agenda-detail [agenda]=\"agenda\">\n                    <div>\n                        This is the end of the agenda\n                    </div>\n                </agenda-detail>",
             styles: [""],
             directives: [agenda_component_1.AgendaComponent],
             providers: [app_services_1.AgendaService]

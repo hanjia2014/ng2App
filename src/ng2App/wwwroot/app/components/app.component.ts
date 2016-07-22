@@ -7,7 +7,11 @@ import {AgendaComponent} from './agenda.component';
 @Component({
     selector: 'app',
     template: `<h1>Agenda</h1>
-                <agenda-detail [agenda]="agenda"></agenda-detail>`,
+                <agenda-detail [agenda]="agenda">
+                    <div>
+                        This is the end of the agenda
+                    </div>
+                </agenda-detail>`,
     styles: [``],
     directives: [AgendaComponent],
     providers: [AgendaService]
