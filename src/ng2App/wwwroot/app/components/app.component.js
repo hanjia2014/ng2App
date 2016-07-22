@@ -11,10 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var app_services_1 = require('../services/app.services');
 var agenda_component_1 = require('./agenda.component');
+var datepicker_component_1 = require('./plugins/datepicker/datepicker.component');
 var AppComponent = (function () {
     function AppComponent(agendaService) {
         var _this = this;
         this.agendaService = agendaService;
+        this.dt = new Date();
+        this.minDate = void 0;
         this.getItemOfBusinesses = function (agendaId) {
             _this.agendaService.getItemOfBusinesses(13).subscribe(function (items) {
                 _this.agenda.ItemOfBusinesses = items;
@@ -30,9 +33,9 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',
-            template: "<h1>Agenda</h1>\n                <agenda-detail [agenda]=\"agenda\">\n                    <div>\n                        This is the end of the agenda\n                    </div>\n                </agenda-detail>",
+            template: "<h1>Agenda</h1>\n                <div style=\"display:inline-block; min-height:290px;\">\n                    <datepicker [(ngModel)]=\"dt\" [minDate]=\"minDate\" [showWeeks]=\"true\"></datepicker>\n                </div>\n                <agenda-detail [agenda]=\"agenda\">\n                    <div>\n                        This is the end of the agenda\n                    </div>\n                </agenda-detail>",
             styles: [""],
-            directives: [agenda_component_1.AgendaComponent],
+            directives: [agenda_component_1.AgendaComponent, datepicker_component_1.DatePickerComponent],
             providers: [app_services_1.AgendaService]
         }), 
         __metadata('design:paramtypes', [app_services_1.AgendaService])

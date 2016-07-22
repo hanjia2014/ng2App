@@ -23,6 +23,9 @@ export class AgendaComponent implements OnInit {
         this.agenda.ItemOfBusinesses.push(item);
     }
 
+    ngOnInit() {
+    }
+
     itemListener(item: BaseModel) {
         console.log(item.Name + ' created');
     }

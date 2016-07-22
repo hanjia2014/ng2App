@@ -22,6 +22,8 @@ var AgendaComponent = (function () {
             _this.agenda.ItemOfBusinesses.push(item);
         };
     }
+    AgendaComponent.prototype.ngOnInit = function () {
+    };
     AgendaComponent.prototype.itemListener = function (item) {
         console.log(item.Name + ' created');
     };
