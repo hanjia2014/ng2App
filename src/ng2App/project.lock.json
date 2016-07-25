@@ -10003,6 +10003,7 @@
       "Microsoft.Extensions.Options.ConfigurationExtensions >= 1.0.0",
       "Microsoft.NETCore.App >= 1.0.0",
       "Microsoft.VisualStudio.Web.BrowserLink.Loader >= 14.0.0",
+      "Newtonsoft.Json >= 9.0.1",
       "System.Net.Primitives >= 4.0.11"
     ],
     ".NETCoreApp,Version=v1.0": []

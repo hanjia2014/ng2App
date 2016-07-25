@@ -8,6 +8,7 @@ import {HearingOfEvidence} from '../models/hearingofevidence';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import { IAgendaService } from './app.interfaces';
 import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AgendaService implements IAgendaService {
