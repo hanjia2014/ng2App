@@ -199,4 +199,12 @@
 --resource:"C:\Projects\ng2App\src\ng2App\obj\Debug\netcoreapp1.0\ng2Appdotnet-compile.deps.json",ng2App.deps.json
 C:\Projects\ng2App\src\ng2App\Program.cs
 C:\Projects\ng2App\src\ng2App\Startup.cs
+C:\Projects\ng2App\src\ng2App\Controllers\AgendaController.cs
 C:\Projects\ng2App\src\ng2App\Controllers\HomeController.cs
+C:\Projects\ng2App\src\ng2App\Controllers\ValuesController.cs
+C:\Projects\ng2App\src\ng2App\Models\Agenda.cs
+C:\Projects\ng2App\src\ng2App\Models\BaseModel.cs
+C:\Projects\ng2App\src\ng2App\Models\HearingOfEvidence.cs
+C:\Projects\ng2App\src\ng2App\Models\ItemOfBusiness.cs
+C:\Projects\ng2App\src\ng2App\Models\OrganisationIndividual.cs
+C:\Projects\ng2App\src\ng2App\Models\Witness.cs
