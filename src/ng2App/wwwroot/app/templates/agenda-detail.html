@@ -1,5 +1,6 @@
 ﻿<div *ngIf="agenda">
     <h2>Details:</h2>
+    Agenda: {{agenda.Name}}
     Item of Business ({{agenda.ItemOfBusinesses.length}})
     <img src="../../images/plus.ico" width="20" (click)="addItemOfBusiness()" />
     <div *ngFor="let item of agenda.ItemOfBusinesses">

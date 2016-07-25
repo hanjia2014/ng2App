@@ -4,5 +4,5 @@ import {Agenda} from '../models/agenda';
 
 export interface IAgendaService {
     getItemOfBusinesses: (agendaId: number) => Observable<ItemOfBusiness[]>;
-    getAgenda: (id: number) => Agenda;
+    getAgenda: (id: number) => Observable<Agenda>;
 }

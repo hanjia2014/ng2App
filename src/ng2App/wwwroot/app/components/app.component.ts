@@ -1,8 +1,9 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { AgendaService } from '../services/app.services';
-import {Agenda} from '../models/agenda';
+import { Agenda } from '../models/agenda';
 import { ItemOfBusiness } from '../models/itemofbusiness';
-import {AgendaComponent} from './agenda.component';
+import { AgendaComponent } from './agenda.component';
+import { Observable }     from 'rxjs/Observable';
 
 @Component({
     selector: 'app',
@@ -21,16 +22,13 @@ export class AppComponent implements OnInit {
     error: any;
     public dt: Date = new Date();
     public minDate: Date = void 0;
-    getItemOfBusinesses = (agendaId: number) => {
-        this.agendaService.getItemOfBusinesses(13).subscribe(
-            (items: ItemOfBusiness[]) => {
-                this.agenda.ItemOfBusinesses = items;
-            },
-            (err: any) => this.error = err);
-    }
 
     getAgenda = () => {
-        this.agenda = this.agendaService.getAgenda(7);
+        this.agendaService.getAgenda(7).subscribe(
+            (data: Agenda) => {
+                this.agenda = data;
+            },
+            (err: any) => this.error = err);;
     }
 
     ngOnInit() {
@@ -38,6 +36,5 @@ export class AppComponent implements OnInit {
     }
 
     constructor(private agendaService: AgendaService) {
-        
     }
 }

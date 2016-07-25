@@ -7,10 +7,11 @@ import {OrganisationIndividual} from '../models/organisationindividual';
 import {HearingOfEvidence} from '../models/hearingofevidence';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import { IAgendaService } from './app.interfaces';
+import 'rxjs/Rx';
 
 @Injectable()
 export class AgendaService implements IAgendaService {
-    apiUrl: string = '/umbraco/api/events/GetEventsOverview/?alias=event';
+    apiUrl: string = 'api/agenda/';
     constructor(private http: Http) {
     }
     getItemOfBusinesses(agendaId: number): Observable<ItemOfBusiness[]> {
@@ -24,30 +25,14 @@ export class AgendaService implements IAgendaService {
         });
     }
 
-    getAgenda(id: number) {
-        var witness = new Witness();
-        witness.Name = "John Doe";
-        witness.Position = "Staff";
-
-        var organisation = new OrganisationIndividual();
-        organisation.Name = "Org One";
-        organisation.Witnesses = new Array<Witness>();
-        organisation.Witnesses.push(witness);
-
-        var hearing = new HearingOfEvidence();
-        hearing.Name = "Hearing One";
-        hearing.Organisations = new Array<OrganisationIndividual>();
-        hearing.Organisations.push(organisation);
-
-        var itemofbusiness = new ItemOfBusiness();
-        itemofbusiness.Name = "Item One";
-        itemofbusiness.HearingOfEvidences = new Array<HearingOfEvidence>();
-        itemofbusiness.HearingOfEvidences.push(hearing);
-
-        var agenda = new Agenda();
-        agenda.ItemOfBusinesses = new Array<ItemOfBusiness>();
-        agenda.ItemOfBusinesses.push(itemofbusiness);
-
-        return agenda;
+    getAgenda(id: number): Observable<Agenda> {
+        var completeUrl = this.apiUrl + id;
+        return this.http.get(completeUrl).map((res: Response) => {
+            if (res.status != 200) {
+                throw new Error('No objects to retrieve! code status ' + res.status);
+            } else {
+                return res.json();
+            }
+        });
     }
 }
