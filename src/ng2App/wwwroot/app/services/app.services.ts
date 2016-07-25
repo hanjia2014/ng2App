@@ -26,8 +26,7 @@ export class AgendaService implements IAgendaService {
     }
 
     getAgenda(id: number): Observable<Agenda> {
-        var completeUrl = this.apiUrl + id;
-        return this.http.get(completeUrl).map((res: Response) => {
+        return this.http.get(this.apiUrl + id).map((res: Response) => {
             if (res.status != 200) {
                 throw new Error('No objects to retrieve! code status ' + res.status);
             } else {

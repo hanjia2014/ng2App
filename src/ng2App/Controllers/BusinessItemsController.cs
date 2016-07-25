@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using ng2App.Models;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ng2App.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class BusinessItemsController : Controller
     {
         // GET: api/values
         [HttpGet]
@@ -20,9 +18,12 @@ namespace ng2App.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IList<ItemOfBusiness> Get(int agendaId)
         {
-            return "value";
+            var witness = new Witness { Name = "John Doe", Position = "Staff" };
+            var organisation = new OrganisationIndividual { Name = "Org One", Witnesses = new List<Witness> { witness } };
+            var hearing = new HearingOfEvidence { Name = "Hearing One", Organisations = new List<OrganisationIndividual> { organisation } };
+            return new List<ItemOfBusiness>() { new ItemOfBusiness { Name = "Business Item One", HearingOfEvidences = new List<HearingOfEvidence> { hearing } } };
         }
 
         // POST api/values

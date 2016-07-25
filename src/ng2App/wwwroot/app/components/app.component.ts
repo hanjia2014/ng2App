@@ -18,21 +18,21 @@ import { Observable }     from 'rxjs/Observable';
     providers: [AgendaService]
 })
 export class AppComponent implements OnInit {
-    agenda: Agenda;
+    agenda: Agenda = new Agenda();
     error: any;
     public dt: Date = new Date();
     public minDate: Date = void 0;
 
-    getAgenda = () => {
+    getAgenda = (agenda: Agenda) => {
         this.agendaService.getAgenda(7).subscribe(
             (data: Agenda) => {
-                this.agenda = data;
+                Object.assign(agenda, data);
             },
             (err: any) => this.error = err);;
     }
 
     ngOnInit() {
-        this.getAgenda();
+        this.getAgenda(this.agenda);
     }
 
     constructor(private agendaService: AgendaService) {
