@@ -1,4 +1,7 @@
-﻿<input [(ngModel)]="item.Name" placeholder="Name"/>
+﻿<link href="../../css/style.css" rel="stylesheet" />
+<link href="../../css/ng2-select.css" rel="stylesheet" />
+
+<input [(ngModel)]="item.Name" placeholder="Name"/>
 Hearings ({{item.HearingOfEvidences.length}})
 <multiselect (modelUpdated)="subItemTypeSelected($event)"
              [multiple]="false"
@@ -7,6 +10,18 @@ Hearings ({{item.HearingOfEvidences.length}})
              [mutiselectModel]="multiselectModel">
 </multiselect>
 <img src="../../images/plus-red.png" width="20" (click)="addSubItem()" />
+
+
+<ng-select [data]="value"
+           [multiple]="false"
+           [items]="items"
+           [disabled]="disabled"
+           (data)="refreshValue($event)"
+           (selected)="selected($event)"
+           (removed)="removed($event)"
+           placeholder="No item selected"></ng-select>
+<img src="../../images/plus-red.png" width="20" (click)="addItem()" />
+
 <div *ngFor="let hearing of item.HearingOfEvidences">
     <hearing-of-evidence [hearing]="hearing"></hearing-of-evidence>
 </div>
