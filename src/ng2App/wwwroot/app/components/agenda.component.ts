@@ -40,4 +40,8 @@ export class AgendaComponent extends SortableBase implements OnInit, AfterViewIn
     constructor() {
         super();
     }
+
+    removeItemOfBusiness = (index: number) => {
+        this.agenda.ItemOfBusinesses.splice(index, 1);
+    }
 }

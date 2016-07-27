@@ -27,7 +27,16 @@ namespace ng2App.Controllers
             var organisation = new OrganisationIndividual { Name = "Org One", Witnesses = new List<Witness> { witness } };
             var hearing = new HearingOfEvidence { Name = "Hearing One", Organisations = new List<OrganisationIndividual> { organisation } };
             var itemofbusiness = new ItemOfBusiness { Name = "Business Item One", HearingOfEvidences = new List<HearingOfEvidence> { hearing } };
-            var agenda = new Agenda() { Name = "New Agenda", ItemOfBusinesses = new List<ItemOfBusiness> { itemofbusiness } };
+
+
+            var witness2 = new Witness { Name = "Jia Han", Position = "Staff" };
+            var organisation2 = new OrganisationIndividual { Name = "Org Two", Witnesses = new List<Witness> { witness2 } };
+            var hearing2 = new HearingOfEvidence { Name = "Hearing Two", Organisations = new List<OrganisationIndividual> { organisation2 } };
+            var itemofbusiness2 = new ItemOfBusiness { Name = "Business Item One", HearingOfEvidences = new List<HearingOfEvidence> { hearing2 } };
+
+
+
+            var agenda = new Agenda() { Name = "New Agenda", ItemOfBusinesses = new List<ItemOfBusiness> { itemofbusiness, itemofbusiness2 } };
             return JsonConvert.SerializeObject(agenda);
         }
 
