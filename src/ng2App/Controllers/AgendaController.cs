@@ -32,7 +32,7 @@ namespace ng2App.Controllers
             var witness2 = new Witness { Name = "Jia Han", Position = "Staff" };
             var organisation2 = new OrganisationIndividual { Name = "Org Two", Witnesses = new List<Witness> { witness2 } };
             var hearing2 = new HearingOfEvidence { Name = "Hearing Two", Organisations = new List<OrganisationIndividual> { organisation2 } };
-            var itemofbusiness2 = new ItemOfBusiness { Name = "Business Item One", HearingOfEvidences = new List<HearingOfEvidence> { hearing2 } };
+            var itemofbusiness2 = new ItemOfBusiness { Name = "Business Item Two", HearingOfEvidences = new List<HearingOfEvidence> { hearing2 } };
 
 
 
