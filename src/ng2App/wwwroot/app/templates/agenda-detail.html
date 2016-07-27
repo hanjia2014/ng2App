@@ -3,9 +3,20 @@
     Agenda
     Item of Business ({{agenda.ItemOfBusinesses.length}})
     <img src="../../images/plus.ico" width="20" (click)="addItemOfBusiness()" />
-    <div *ngFor="let item of agenda.ItemOfBusinesses">
+    <!--<div *ngFor="let item of agenda.ItemOfBusinesses">
         <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item"></item-of-business>
-    </div>
+    </div>-->
+
+    <ul id="draggableItemList" class="list-unstyled">
+        <li class="panel panel-info" *ngFor="let item of agenda.ItemOfBusinesses">
+            <div class="panel-heading">You can drag this panel.</div>
+            <div class="panel-body">
+                <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item"></item-of-business>
+            </div>
+        </li>
+    </ul>
+
+
     <agenda-footer [subItemLength]="agenda.ItemOfBusinesses.length"></agenda-footer>
 </div>
 <ng-Content></ng-Content>

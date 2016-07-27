@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, ContentChildren } from '@angular/core';
+﻿import { Component, OnInit, Input, ContentChildren, AfterViewInit } from '@angular/core';
 import { Agenda } from '../models/agenda';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import {ItemOfBusinessComponent} from './itemofbusiness.component';
@@ -9,11 +9,13 @@ import { BaseModel } from '../models/basemodel'
 @Component({
     selector: 'agenda-detail',
     templateUrl: `app/templates/agenda-detail.html`,
-    styles: [``],
+    styles: [`#draggableItemList .panel-heading {
+        cursor: move;
+    }`],
     directives: [ItemOfBusinessComponent, AgendaFooterComponent],
     providers: []
 })
-export class AgendaComponent implements OnInit {
+export class AgendaComponent implements OnInit, AfterViewInit {
     @Input()
     agenda: Agenda;
 
@@ -24,6 +26,26 @@ export class AgendaComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    ngAfterViewInit() {
+        (function ($: any) {
+            var panelList = $('#draggableItemList');
+
+            panelList.sortable({
+                // Only make the .panel-heading child elements support dragging.
+                // Omit this to make then entire <li>...</li> draggable.
+                handle: '.panel-heading',
+                update: function () {
+                    $('.panel', panelList).each(function (index: any, elem: any) {
+                        var $listItem = $(elem),
+                            newIndex = $listItem.index();
+
+                        // Persist the new indices.
+                    });
+                }
+            });
+        })(jQuery);
     }
 
     itemListener(item: BaseModel) {

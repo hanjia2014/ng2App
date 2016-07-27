@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import { HearingOfEvidence } from '../models/HearingOfEvidence';
 import { HearingOfEvidenceComponent } from './hearingofevidence.component';
@@ -8,11 +8,13 @@ import { SELECT_DIRECTIVES } from './plugins/ng2-select/ng2-select';
 @Component({
     selector: 'item-of-business',
     templateUrl: `app/templates/item-of-business.html`,
-    styles: [``],
+    styles: [`#draggableHearinglList .panel-heading {
+        cursor: move;
+    }`],
     directives: [HearingOfEvidenceComponent, Multiselect, SELECT_DIRECTIVES],
     providers: []
 })
-export class ItemOfBusinessComponent implements OnInit {
+export class ItemOfBusinessComponent implements OnInit, AfterViewInit {
     @Input()
     item: ItemOfBusiness;
     @Output() itemUpdateOutput = new EventEmitter<any>();
@@ -40,6 +42,26 @@ export class ItemOfBusinessComponent implements OnInit {
 
     ngOnInit() {
         this.subItemTypes = [{ id: 1, name: "Hearing Of Evidence" }, { id: 2, name: "Consideration" }, { id: 3, name: "Free Text" }];
+    }
+
+    ngAfterViewInit() {
+        (function ($: any) {
+            var panelList = $('#draggableHearinglList');
+
+            panelList.sortable({
+                // Only make the .panel-heading child elements support dragging.
+                // Omit this to make then entire <li>...</li> draggable.
+                handle: '.panel-heading',
+                update: function () {
+                    $('.panel', panelList).each(function (index: any, elem: any) {
+                        var $listItem = $(elem),
+                            newIndex = $listItem.index();
+
+                        // Persist the new indices.
+                    });
+                }
+            });
+        })(jQuery);
     }
     constructor() {
 

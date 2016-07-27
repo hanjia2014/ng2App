@@ -1,7 +1,19 @@
-﻿<link href="../../css/style.css" rel="stylesheet" />
-<link href="../../css/ng2-select.css" rel="stylesheet" />
+﻿<style media="screen">
+    .header {
+        background-color: #0143A3;
+        background: -webkit-linear-gradient(#0143A3, #0273D4);
+        background: linear-gradient(#0143A3, #FF0273D4);
+        color: #FFF;
+        padding: 30px;
+    }
 
-<input [(ngModel)]="item.Name" placeholder="Name"/>
+    section {
+        padding-top: 30px;
+    }
+
+</style>
+
+<input [(ngModel)]="item.Name" placeholder="Name" />
 Hearings ({{item.HearingOfEvidences.length}})
 <multiselect (modelUpdated)="subItemTypeSelected($event)"
              [multiple]="false"
@@ -19,9 +31,16 @@ Hearings ({{item.HearingOfEvidences.length}})
            (data)="refreshValue($event)"
            (selected)="selected($event)"
            (removed)="removed($event)"
-           placeholder="No item selected"></ng-select>
+           placeholder="only hearing of evidence works"></ng-select>
 <img src="../../images/plus-red.png" width="20" (click)="addItem()" />
 
-<div *ngFor="let hearing of item.HearingOfEvidences">
-    <hearing-of-evidence [hearing]="hearing"></hearing-of-evidence>
-</div>
+
+<!-- Bootstrap 3 panel list. -->
+<ul id="draggableHearinglList" class="list-unstyled">
+    <li class="panel panel-info" *ngFor="let hearing of item.HearingOfEvidences">
+        <div class="panel-heading">You can drag this panel.</div>
+        <div class="panel-body">
+            <hearing-of-evidence [hearing]="hearing"></hearing-of-evidence>
+        </div>
+    </li>
+</ul>
