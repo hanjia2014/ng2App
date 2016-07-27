@@ -5,6 +5,7 @@ import {ItemOfBusinessComponent} from './itemofbusiness.component';
 import { HearingOfEvidence } from '../models/hearingofevidence';
 import { AgendaFooterComponent } from './agenda.footer.component';
 import { BaseModel } from '../models/basemodel'
+import { SortableBase } from './base.sortable.component';
 
 @Component({
     selector: 'agenda-detail',
@@ -15,7 +16,7 @@ import { BaseModel } from '../models/basemodel'
     directives: [ItemOfBusinessComponent, AgendaFooterComponent],
     providers: []
 })
-export class AgendaComponent implements OnInit, AfterViewInit {
+export class AgendaComponent extends SortableBase implements OnInit, AfterViewInit {
     @Input()
     agenda: Agenda;
 
@@ -26,32 +27,17 @@ export class AgendaComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
+        this.SortableListId = 'draggableItemList';
     }
 
     ngAfterViewInit() {
-        (function ($: any) {
-            var panelList = $('#draggableItemList');
-
-            panelList.sortable({
-                // Only make the .panel-heading child elements support dragging.
-                // Omit this to make then entire <li>...</li> draggable.
-                handle: '.panel-heading',
-                update: function () {
-                    $('.panel', panelList).each(function (index: any, elem: any) {
-                        var $listItem = $(elem),
-                            newIndex = $listItem.index();
-
-                        // Persist the new indices.
-                    });
-                }
-            });
-        })(jQuery);
+        this.SortableConfig();
     }
 
     itemListener(item: BaseModel) {
         console.log(item.Name + ' created');
     }
     constructor() {
-
+        super();
     }
 }

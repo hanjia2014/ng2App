@@ -10,15 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var agenda_1 = require('../models/agenda');
-var witness_1 = require('../models/witness');
-var organisationindividual_1 = require('../models/organisationindividual');
-var hearingofevidence_1 = require('../models/hearingofevidence');
-var itemofbusiness_1 = require('../models/itemofbusiness');
+require('rxjs/Rx');
+require('rxjs/add/operator/map');
 var AgendaService = (function () {
     function AgendaService(http) {
         this.http = http;
-        this.apiUrl = '/umbraco/api/events/GetEventsOverview/?alias=event';
+        this.apiUrl = 'api/agenda/';
     }
     AgendaService.prototype.getItemOfBusinesses = function (agendaId) {
         return this.http.get(this.apiUrl).map(function (res) {
@@ -31,25 +28,14 @@ var AgendaService = (function () {
         });
     };
     AgendaService.prototype.getAgenda = function (id) {
-        var witness = new witness_1.Witness();
-        witness.Name = "John Doe";
-        witness.Position = "Staff";
-        var organisation = new organisationindividual_1.OrganisationIndividual();
-        organisation.Name = "Org One";
-        organisation.Witnesses = new Array();
-        organisation.Witnesses.push(witness);
-        var hearing = new hearingofevidence_1.HearingOfEvidence();
-        hearing.Name = "Hearing One";
-        hearing.Organisations = new Array();
-        hearing.Organisations.push(organisation);
-        var itemofbusiness = new itemofbusiness_1.ItemOfBusiness();
-        itemofbusiness.Name = "Item One";
-        itemofbusiness.HearingOfEvidences = new Array();
-        itemofbusiness.HearingOfEvidences.push(hearing);
-        var agenda = new agenda_1.Agenda();
-        agenda.ItemOfBusinesses = new Array();
-        agenda.ItemOfBusinesses.push(itemofbusiness);
-        return agenda;
+        return this.http.get(this.apiUrl + id).map(function (res) {
+            if (res.status != 200) {
+                throw new Error('No objects to retrieve! code status ' + res.status);
+            }
+            else {
+                return res.json();
+            }
+        });
     };
     AgendaService = __decorate([
         core_1.Injectable(), 

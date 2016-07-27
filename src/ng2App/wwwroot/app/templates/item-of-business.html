@@ -36,7 +36,7 @@ Hearings ({{item.HearingOfEvidences.length}})
 
 
 <!-- Bootstrap 3 panel list. -->
-<ul id="draggableHearinglList" class="list-unstyled">
+<ul id="{{SortableListId}}" class="list-unstyled">
     <li class="panel panel-info" *ngFor="let hearing of item.HearingOfEvidences">
         <div class="panel-heading">You can drag this panel.</div>
         <div class="panel-body">

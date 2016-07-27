@@ -10,24 +10,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var app_services_1 = require('../services/app.services');
+var agenda_1 = require('../models/agenda');
 var agenda_component_1 = require('./agenda.component');
 var AppComponent = (function () {
     function AppComponent(agendaService) {
         var _this = this;
         this.agendaService = agendaService;
+        this.agenda = new agenda_1.Agenda();
         this.dt = new Date();
         this.minDate = void 0;
-        this.getItemOfBusinesses = function (agendaId) {
-            _this.agendaService.getItemOfBusinesses(13).subscribe(function (items) {
-                _this.agenda.ItemOfBusinesses = items;
+        this.getAgenda = function (agenda) {
+            _this.agendaService.getAgenda(7).subscribe(function (data) {
+                Object.assign(agenda, data);
             }, function (err) { return _this.error = err; });
-        };
-        this.getAgenda = function () {
-            _this.agenda = _this.agendaService.getAgenda(7);
+            ;
         };
     }
     AppComponent.prototype.ngOnInit = function () {
-        this.getAgenda();
+        this.getAgenda(this.agenda);
     };
     AppComponent = __decorate([
         core_1.Component({

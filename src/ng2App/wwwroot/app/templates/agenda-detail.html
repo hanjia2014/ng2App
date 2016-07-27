@@ -7,7 +7,7 @@
         <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item"></item-of-business>
     </div>-->
 
-    <ul id="draggableItemList" class="list-unstyled">
+    <ul id="{{SortableListId}}" class="list-unstyled">
         <li class="panel panel-info" *ngFor="let item of agenda.ItemOfBusinesses">
             <div class="panel-heading">You can drag this panel.</div>
             <div class="panel-body">

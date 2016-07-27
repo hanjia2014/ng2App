@@ -24,6 +24,22 @@ var AgendaComponent = (function () {
     }
     AgendaComponent.prototype.ngOnInit = function () {
     };
+    AgendaComponent.prototype.ngAfterViewInit = function () {
+        (function ($) {
+            var panelList = $('#draggableItemList');
+            panelList.sortable({
+                // Only make the .panel-heading child elements support dragging.
+                // Omit this to make then entire <li>...</li> draggable.
+                handle: '.panel-heading',
+                update: function () {
+                    $('.panel', panelList).each(function (index, elem) {
+                        var $listItem = $(elem), newIndex = $listItem.index();
+                        // Persist the new indices.
+                    });
+                }
+            });
+        })(jQuery);
+    };
     AgendaComponent.prototype.itemListener = function (item) {
         console.log(item.Name + ' created');
     };
@@ -35,7 +51,7 @@ var AgendaComponent = (function () {
         core_1.Component({
             selector: 'agenda-detail',
             templateUrl: "app/templates/agenda-detail.html",
-            styles: [""],
+            styles: ["#draggableItemList .panel-heading {\n        cursor: move;\n    }"],
             directives: [itemofbusiness_component_1.ItemOfBusinessComponent, agenda_footer_component_1.AgendaFooterComponent],
             providers: []
         }), 
