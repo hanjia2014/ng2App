@@ -19,6 +19,9 @@
 
                         // Persist the new indices.
                     });
+                },
+                start: function (e: any, ui: any) {
+                    ui.placeholder.height(ui.item.height());
                 }
             });
         })(jQuery);
