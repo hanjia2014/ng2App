@@ -11,7 +11,7 @@
         <li class="panel panel-info" *ngFor="let item of agenda.ItemOfBusinesses; let i = index">
             <div class="panel-heading">You can drag this panel.</div>
             <div class="panel-body">
-                <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item"></item-of-business>
+                <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item" [itemOfBusinessIndex]="i"></item-of-business>
             </div>
             <input type="button" (click)="removeItemOfBusiness(i)" value="Remove" class="btn-group-lg" />
         </li>

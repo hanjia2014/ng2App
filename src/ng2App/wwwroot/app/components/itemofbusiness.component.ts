@@ -9,7 +9,7 @@ import { SortableBase } from './base.sortable.component';
 @Component({
     selector: 'item-of-business',
     templateUrl: `app/templates/item-of-business.html`,
-    styles: [`#draggableHearinglList .panel-heading {
+    styles: [`.panel-heading {
         cursor: move;
     }`],
     directives: [HearingOfEvidenceComponent, Multiselect, SELECT_DIRECTIVES],
@@ -18,6 +18,8 @@ import { SortableBase } from './base.sortable.component';
 export class ItemOfBusinessComponent extends SortableBase implements OnInit, AfterViewInit {
     @Input()
     item: ItemOfBusiness;
+    @Input()
+    itemOfBusinessIndex: number;
     @Output() itemUpdateOutput = new EventEmitter<any>();
 
     multiselectModel: Array<any> = [];
@@ -43,7 +45,7 @@ export class ItemOfBusinessComponent extends SortableBase implements OnInit, Aft
 
     ngOnInit() {
         this.subItemTypes = [{ id: 1, name: "Hearing Of Evidence" }, { id: 2, name: "Consideration" }, { id: 3, name: "Free Text" }];
-        this.SortableListId = 'draggableHearinglList';
+        this.SortableListId = 'draggableHearinglList' + this.itemOfBusinessIndex;
     }
 
     ngAfterViewInit() {
