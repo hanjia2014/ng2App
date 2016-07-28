@@ -279,5 +279,6 @@ pre {
         }
 
 .sortable-hightlight {
-    border: 1px dotted red;
+    border: 1px dotted darkgreen;
+    margin-bottom: 20px;
 }
