@@ -10,8 +10,9 @@ import { SortableBase } from './base.sortable.component';
     selector: 'item-of-business',
     templateUrl: `app/templates/item-of-business.html`,
     styles: [`.panel-heading {
-        cursor: move;
-    }`],
+                    cursor: move;
+              }
+            `],
     directives: [HearingOfEvidenceComponent, Multiselect, SELECT_DIRECTIVES],
     providers: []
 })
