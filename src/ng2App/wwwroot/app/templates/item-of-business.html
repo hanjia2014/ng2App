@@ -15,13 +15,13 @@
 
 <input [(ngModel)]="item.Name" placeholder="Name" />
 Hearings ({{item.HearingOfEvidences.length}})
-<multiselect (modelUpdated)="subItemTypeSelected($event)"
+<!--<multiselect (modelUpdated)="subItemTypeSelected($event)"
              [multiple]="false"
              [collection]="subItemTypes"
              [label]="'name'"
              [mutiselectModel]="multiselectModel">
 </multiselect>
-<img src="../../images/plus-red.png" width="20" (click)="addSubItem()" />
+<img src="../../images/plus-red.png" width="20" (click)="addSubItem()" />-->
 
 
 <ng-select [data]="value"
