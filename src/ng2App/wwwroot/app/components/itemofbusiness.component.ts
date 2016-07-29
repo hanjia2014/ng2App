@@ -100,10 +100,7 @@ export class ItemOfBusinessComponent extends SortableBase implements OnInit, Aft
     }
 
     public addItem = () => {
-        var subItemType = this.selectedItem['text'];
-        if (subItemType == null)
-            subItemType = this.selectedItem;
-        if (subItemType == "Hearing Of Evidence")
+        if (this.selectedItem == "Hearing Of Evidence")
             this.addHearing();
     }
 

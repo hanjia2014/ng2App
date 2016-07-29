@@ -23,16 +23,6 @@ Hearings ({{item.HearingOfEvidences.length}})
 </multiselect>
 <img src="../../images/plus-red.png" width="20" (click)="addSubItem()" />-->
 
-
-<ng-select [data]="value"
-           [multiple]="false"
-           [items]="items"
-           [disabled]="disabled"
-           (data)="refreshValue($event)"
-           (selected)="selected($event)"
-           (removed)="removed($event)"
-           placeholder="only hearing of evidence works"></ng-select>
-
 <select2 [id]="selectId" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
 
 <img src="../../images/plus-red.png" width="20" (click)="addItem()" />

@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'select2',
-    template: `<input id="{{id}}" class="form-control"/>`,
+    template: `<input id="{{id}}"/>`,
     styles: [],
     directives: [],
     providers: []
@@ -23,6 +23,7 @@ export class Select2Component implements AfterViewInit {
             allowClear: true,
             data: this.data,
             multiple: this.multiple,
+            maximumInputLength: 30
         };
         $("#" + this.id).select2(options).on("change", (e: any) => {
             this.selected.next(e.val);
