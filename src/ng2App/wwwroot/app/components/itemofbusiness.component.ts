@@ -11,6 +11,7 @@ import { Select2Component } from './plugins/select2';
     templateUrl: `app/templates/item-of-business.html`,
     styles: [`.panel-heading {
                     cursor: move;
+                    background-color:#ead3b5;
               }
             `],
     directives: [HearingOfEvidenceComponent, Multiselect, SELECT_DIRECTIVES, Select2Component],
