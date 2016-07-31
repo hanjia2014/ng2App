@@ -12,21 +12,14 @@
     }
 
 </style>
+<p>
+    <input [(ngModel)]="item.Name" placeholder="Name" />
+    Hearings ({{item.HearingOfEvidences.length}})
 
-<input [(ngModel)]="item.Name" placeholder="Name" />
-Hearings ({{item.HearingOfEvidences.length}})
-<!--<multiselect (modelUpdated)="subItemTypeSelected($event)"
-             [multiple]="false"
-             [collection]="subItemTypes"
-             [label]="'name'"
-             [mutiselectModel]="multiselectModel">
-</multiselect>
-<img src="../../images/plus-red.png" width="20" (click)="addSubItem()" />-->
+    <select2 [id]="selectId" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
 
-<select2 [id]="selectId" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
-
-<img src="../../images/plus-red.png" width="20" (click)="addItem()" />
-
+    <img src="../../images/plus-red.png" width="20" (click)="addItem()" />
+</p>
 
 <!-- Bootstrap 3 panel list. -->
 <ol type="1" id="{{SortableListId}}" class="list-sortable">
