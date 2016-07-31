@@ -1,6 +1,9 @@
 ﻿export class SortableBase {
     SortableListId: string;
-
+    IsNumberedList: boolean;
+    constructor() {
+        this.IsNumberedList = true;
+    }
     public SortableConfig() {
         var eleId = '#' + this.SortableListId;
 

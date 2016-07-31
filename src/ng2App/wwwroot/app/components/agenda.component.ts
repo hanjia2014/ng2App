@@ -12,7 +12,27 @@ import { SortableBase } from './base.sortable.component';
     templateUrl: `app/templates/agenda-detail.html`,
     styles: [`#draggableItemList .panel-heading {
         cursor: move;
-    }`],
+    }
+.number-list ol {
+            counter-reset: item;
+        }
+
+        .number-list li {
+            list-style: none;
+            counter-increment: item;
+            margin-bottom: 5px;
+        }
+
+            .number-list li:before {
+                content: counters(item, ".") " ";
+                background: orange;
+                margin-right: 10px;
+                border-radius: 100%;
+                color: white;
+                min-width: 1.2em;
+                text-align: center;
+                display: inline-block;
+            }`],
     directives: [ItemOfBusinessComponent, AgendaFooterComponent],
     providers: []
 })
