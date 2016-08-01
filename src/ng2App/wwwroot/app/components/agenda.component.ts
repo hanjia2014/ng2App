@@ -6,6 +6,7 @@ import { HearingOfEvidence } from '../models/hearingofevidence';
 import { AgendaFooterComponent } from './agenda.footer.component';
 import { BaseModel } from '../models/basemodel'
 import { SortableBase } from './base.sortable.component';
+import { DatePickerComponent } from './plugins/datepicker';
 
 @Component({
     selector: 'agenda-detail',
@@ -33,13 +34,13 @@ import { SortableBase } from './base.sortable.component';
                 text-align: center;
                 display: inline-block;
             }`],
-    directives: [ItemOfBusinessComponent, AgendaFooterComponent],
+    directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent],
     providers: []
 })
 export class AgendaComponent extends SortableBase implements OnInit, AfterViewInit {
     @Input()
     agenda: Agenda;
-
+    agendaDate: Date;
     addItemOfBusiness = () => {
         var item = new ItemOfBusiness();
         item.Name = "New Item";
@@ -59,6 +60,9 @@ export class AgendaComponent extends SortableBase implements OnInit, AfterViewIn
     }
     constructor() {
         super();
+    }
+    public dateChange(value: Date) {
+        this.agendaDate = value;
     }
 
     removeItemOfBusiness = (index: number) => {
