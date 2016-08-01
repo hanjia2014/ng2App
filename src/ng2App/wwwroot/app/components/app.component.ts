@@ -12,7 +12,10 @@ import { Observable }     from 'rxjs/Observable';
                     <div>
                         This is the end of the agenda
                     </div>
-                </agenda-detail>`,
+                </agenda-detail>
+                <a href="#" class="btn btn-lg save-button" (click)="saveAgenda()">
+                    <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
+                </a>`,
     styles: [``],
     directives: [AgendaComponent],
     providers: [AgendaService]
@@ -36,5 +39,9 @@ export class AppComponent implements OnInit {
     }
 
     constructor(private agendaService: AgendaService) {
+    }
+
+    saveAgenda = () => {
+        this.agendaService.saveAgenda(this.agenda);
     }
 }
