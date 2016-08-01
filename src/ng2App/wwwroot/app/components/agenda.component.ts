@@ -14,13 +14,7 @@ import { DatePickerComponent } from './plugins/datepicker';
     styles: [`#draggableItemList .panel-heading {
         cursor: move;
     }
-    .save-button{
-        background-color: lightgreen;
-        border-color: green;
-        border-width: thick;
-        color: darkgreen;
-    }
-.number-list ol {
+        .number-list ol {
             counter-reset: item;
         }
 

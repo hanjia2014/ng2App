@@ -42,8 +42,9 @@ namespace ng2App.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public bool Post([FromBody]Agenda value)
         {
+            return value != null;
         }
 
         // PUT api/values/5

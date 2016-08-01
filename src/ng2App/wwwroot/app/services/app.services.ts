@@ -36,12 +36,19 @@ export class AgendaService implements IAgendaService {
         });
     }
 
-    saveAgenda(agenda: Agenda): void {
-        let body = JSON.stringify(agenda);
+    saveAgenda(agenda: Agenda): Observable<Response> {
+        var body = JSON.stringify({ name: "AA" });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        this.http.post(this.apiUrl, body, options);
+        return this.http.post(this.apiUrl, agenda, options).map((res: Response) => {
+            if (res.status != 200) {
+                throw new Error('No objects to retrieve! code status ' + res.status);
+            } else {
+                var result = res.json();
+                return res.json();
+            }
+        })
     }
 
     private extractData(res: Response) {
