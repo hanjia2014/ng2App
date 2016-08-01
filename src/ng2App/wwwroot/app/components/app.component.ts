@@ -18,7 +18,7 @@ import { Response }     from '@angular/http';
                     <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
                 </a>`,
     styles: [`.save-button{
-        background-color: lightgreen;
+        background-color: #d7f3d7;
         border-color: green;
         border-width: thick;
         color: darkgreen;
