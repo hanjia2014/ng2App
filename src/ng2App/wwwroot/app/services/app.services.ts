@@ -7,6 +7,7 @@ import {OrganisationIndividual} from '../models/organisationindividual';
 import {HearingOfEvidence} from '../models/hearingofevidence';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import { IAgendaService } from './app.interfaces';
+import { Dictionary } from '../models/dictionary';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
@@ -49,6 +50,16 @@ export class AgendaService implements IAgendaService {
                 return res.json();
             }
         })
+    }
+
+    getAgendaList(): Observable<Array<Dictionary>> {
+        return this.http.get(this.apiUrl).map((res: Response) => {
+            if (res.status != 200) {
+                throw new Error('No objects to retrieve! code status ' + res.status);
+            } else {
+                return res.json();
+            }
+        });
     }
 
     private extractData(res: Response) {

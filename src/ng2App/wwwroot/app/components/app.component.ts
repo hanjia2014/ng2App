@@ -6,6 +6,7 @@ import { AgendaComponent } from './agenda.component';
 import { Observable }     from 'rxjs/Observable';
 import { Response }     from '@angular/http';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Dictionary } from '../models/dictionary';
 
 @Component({
     selector: 'app',
@@ -45,6 +46,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.getAgenda(this.agenda);
+        this.agendaService.getAgendaList().subscribe(
+            (data: Array<Dictionary>) => {
+                let list = data;
+            },
+            (err: any) => this.error = err);
     }
 
     constructor(private agendaService: AgendaService) {
