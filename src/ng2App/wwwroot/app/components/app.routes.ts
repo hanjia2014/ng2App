@@ -8,7 +8,7 @@ const routes: RouterConfig = [
         component: HomeRouteComponent
     },
     {
-        path: 'testroute',
+        path: 'testroute/:id',
         component: TestRouteComponent
     }
 ];

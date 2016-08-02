@@ -9,7 +9,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<p><a [routerLink]="['/testroute']" routerLinkActive="active">route</a></p>
+    template: `<p><a [routerLink]="['/testroute', 17]" routerLinkActive="active">route</a></p>
                 <router-outlet></router-outlet>
                 <h1>Agenda</h1>
                 <agenda-detail [agenda]="agenda">
