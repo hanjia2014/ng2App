@@ -5,10 +5,13 @@ import { ItemOfBusiness } from '../models/itemofbusiness';
 import { AgendaComponent } from './agenda.component';
 import { Observable }     from 'rxjs/Observable';
 import { Response }     from '@angular/http';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<h1>Agenda</h1>
+    template: `<p><a [routerLink]="['/testroute']" routerLinkActive="active">route</a></p>
+                <router-outlet></router-outlet>
+                <h1>Agenda</h1>
                 <agenda-detail [agenda]="agenda">
                     <div>
                         This is the end of the agenda
@@ -23,7 +26,7 @@ import { Response }     from '@angular/http';
         border-width: thick;
         color: darkgreen;
     }`],
-    directives: [AgendaComponent],
+    directives: [AgendaComponent, ROUTER_DIRECTIVES],
     providers: [AgendaService]
 })
 export class AppComponent implements OnInit {
