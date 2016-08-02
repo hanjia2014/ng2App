@@ -13,9 +13,12 @@ namespace ng2App.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public Dictionary<int, string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var agendaList = new Dictionary<int, string>();
+            agendaList.Add(1, "The First Agenda");
+            agendaList.Add(2, "The Second Agenda");
+            return agendaList;
         }
 
         // GET api/values/5
@@ -36,7 +39,7 @@ namespace ng2App.Controllers
 
 
 
-            var agenda = new Agenda() { Name = "New Agenda", ItemOfBusinesses = new List<ItemOfBusiness> { itemofbusiness, itemofbusiness2 } };
+            var agenda = new Agenda() { Name = id==1? "Agenda One": "Agenda Two", ItemOfBusinesses = new List<ItemOfBusiness> { itemofbusiness, itemofbusiness2 } };
             return JsonConvert.SerializeObject(agenda);
         }
 
