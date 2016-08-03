@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<h1>Agenda</h1>
+    template: `<h1>Agenda<a [routerLink]="['/agendas']" class="pull-right">Back to list</a></h1>
                 <agenda-detail [agenda]="agenda">
                     <div>
                         This is the end of the agenda
@@ -26,7 +26,7 @@ import { ActivatedRoute } from '@angular/router';
         border-width: thick;
         color: darkgreen;
     }`],
-    directives: [AgendaComponent],
+    directives: [AgendaComponent, ROUTER_DIRECTIVES],
     providers: [AgendaService]
 })
 export class AppComponent implements OnInit {

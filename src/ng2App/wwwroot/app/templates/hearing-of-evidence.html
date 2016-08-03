@@ -1,7 +1,16 @@
 ﻿<p>
     <input [(ngModel)]="hearing.Name" placeholder="Name" />
-    <button type="button" class="btn btn-default" (click)="modal.open()">Open</button>
+    <button type="button" class="btn btn-default" (click)="modal.open()">Add Organisation</button>
 </p>
+
+<ol type="1" id="{{SortableListId}}" class="list-sortable">
+    <li class="panel panel-info" *ngFor="let organisation of hearing.Organisations">
+        <div class="panel-heading">You can drag this panel.</div>
+        <div class="panel-body">
+            {{organisation.Name}}
+        </div>
+    </li>
+</ol>
 
 <modal [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()"
        (onOpen)="opened()" [cssClass]="cssClass" #modal>
@@ -9,12 +18,7 @@
         <h4 class="modal-title">I'm a modal!</h4>
     </modal-header>
     <modal-body>
-        <ul>
-            <li *ngFor="let item of items">
-                <a href="#" (click)="$event.preventDefault(); selected = item">{{ item }}</a>
-            </li>
-        </ul>
-        <p *ngIf="selected">Selected: <b>{{ selected }}</b></p>
+        <input [(ngModel)]="newOrganisation.Name" />
     </modal-body>
     <modal-footer [show-default-buttons]="true"></modal-footer>
 </modal>

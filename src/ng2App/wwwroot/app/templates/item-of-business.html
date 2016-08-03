@@ -23,10 +23,10 @@
 
 <!-- Bootstrap 3 panel list. -->
 <ol type="1" id="{{SortableListId}}" class="list-sortable">
-    <li class="panel panel-info" *ngFor="let hearing of item.HearingOfEvidences">
+    <li class="panel panel-info" *ngFor="let hearing of item.HearingOfEvidences; let i = index">
         <div class="panel-heading">You can drag this panel.</div>
         <div class="panel-body">
-            <hearing-of-evidence [hearing]="hearing"></hearing-of-evidence>
+            <hearing-of-evidence [hearing]="hearing" [hearingIndex]="itemOfBusinessIndex + i"></hearing-of-evidence>
         </div>
     </li>
 </ol>
