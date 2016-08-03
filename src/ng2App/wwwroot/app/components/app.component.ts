@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<h1>Agenda<a [routerLink]="['/agendas']" class="pull-right">Back to list</a></h1>
+    template: `<h1 style="display:inline-block;">Agenda</h1><a [routerLink]="['/agendas']" class="pull-right">Back to list</a>
                 <agenda-detail [agenda]="agenda">
                     <div>
                         This is the end of the agenda
