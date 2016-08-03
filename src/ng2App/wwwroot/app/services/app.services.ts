@@ -1,21 +1,25 @@
 ﻿import { Injectable } from '@angular/core';
-import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
-import {Agenda} from '../models/agenda';
-import {Witness} from '../models/witness';
-import {OrganisationIndividual} from '../models/organisationindividual';
-import {HearingOfEvidence} from '../models/hearingofevidence';
+import { Agenda } from '../models/agenda';
+import { Witness } from '../models/witness';
+import { OrganisationIndividual } from '../models/organisationindividual';
+import { HearingOfEvidence } from '../models/hearingofevidence';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import { IAgendaService } from './app.interfaces';
 import { Dictionary } from '../models/dictionary';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import { AgendaSummary } from '../models/agendasummary';
+import { LocationStrategy } from '@angular/common';
 
 @Injectable()
 export class AgendaService implements IAgendaService {
-    apiUrl: string = 'http://localhost:9344/api/agenda/';
-    constructor(private http: Http) {
+    apiUrl: string = '';
+
+    constructor(private http: Http, private locationStrategy: LocationStrategy) {
+        var baseUrl = this.locationStrategy['_platformLocation'].location.origin;
+        this.apiUrl = baseUrl + '/api/agenda/';
     }
     getItemOfBusinesses(agendaId: number): Observable<ItemOfBusiness[]> {
 
