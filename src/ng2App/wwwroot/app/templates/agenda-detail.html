@@ -16,7 +16,7 @@
             <div class="panel-body">
                 <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item" [itemOfBusinessIndex]="i"></item-of-business>
             </div>
-            <input type="button" (click)="removeItemOfBusiness(i)" value="Remove" class="btn-group-lg" />
+            <input type="button" (click)="removeItemOfBusiness(i)" class="btn-group btn-danger" value="Remove" />
         </li>
     </ol>
 
