@@ -2,7 +2,8 @@
     <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
     <div class="warning">{{agendaDate}}</div>
     <h2>Details:</h2>
-    Agenda
+    Agenda -- {{agenda.Name}}
+    <br />
     Item of Business ({{agenda.ItemOfBusinesses.length}})
     <img src="../../images/plus.ico" width="20" (click)="addItemOfBusiness()" />
     <!--<div *ngFor="let item of agenda.ItemOfBusinesses">

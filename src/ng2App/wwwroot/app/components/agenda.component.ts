@@ -37,7 +37,7 @@ import { DatePickerComponent } from './plugins/datepicker';
     directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent],
     providers: []
 })
-export class AgendaComponent extends SortableBase implements OnInit, AfterViewInit {
+export class AgendaComponent extends SortableBase implements OnInit {
     @Input()
     agenda: Agenda;
     agendaDate: Date;
@@ -49,10 +49,6 @@ export class AgendaComponent extends SortableBase implements OnInit, AfterViewIn
 
     ngOnInit() {
         this.SortableListId = 'draggableItemList';
-    }
-
-    ngAfterViewInit() {
-        this.SortableConfig();
     }
 
     itemListener(item: BaseModel) {

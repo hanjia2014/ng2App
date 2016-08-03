@@ -1,15 +1,20 @@
 ﻿import { provideRouter, RouterConfig }  from '@angular/router';
-import { TestRouteComponent } from './routes/testroute';
-import { HomeRouteComponent } from './routes/homeroute';
+import { LandingComponent } from './landing'
+import { MainComponent } from './main.component'
+import { AppComponent } from './app.component'
 
 const routes: RouterConfig = [
     {
         path: '',
-        component: HomeRouteComponent
+        component: LandingComponent
     },
     {
-        path: 'testroute/:id',
-        component: TestRouteComponent
+        path: 'agendas',
+        component: MainComponent
+    },
+    {
+        path: 'agenda/:id',
+        component: AppComponent
     }
 ];
 

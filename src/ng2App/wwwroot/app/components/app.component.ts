@@ -7,12 +7,11 @@ import { Observable }     from 'rxjs/Observable';
 import { Response }     from '@angular/http';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Dictionary } from '../models/dictionary';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<p><a [routerLink]="['/']" routerLinkActive="active">route</a></p>
-                <router-outlet></router-outlet>
-                <h1>Agenda</h1>
+    template: `<h1>Agenda</h1>
                 <agenda-detail [agenda]="agenda">
                     <div>
                         This is the end of the agenda
@@ -27,7 +26,7 @@ import { Dictionary } from '../models/dictionary';
         border-width: thick;
         color: darkgreen;
     }`],
-    directives: [AgendaComponent, ROUTER_DIRECTIVES],
+    directives: [AgendaComponent],
     providers: [AgendaService]
 })
 export class AppComponent implements OnInit {
@@ -35,9 +34,14 @@ export class AppComponent implements OnInit {
     error: any;
     public dt: Date = new Date();
     public minDate: Date = void 0;
+    sub: any;
+    id: number;
 
     getAgenda = (agenda: Agenda) => {
-        this.agendaService.getAgenda(7).subscribe(
+        this.sub = this.route.params.subscribe(params => {
+            this.id = +params['id'];
+        });
+        this.agendaService.getAgenda(this.id).subscribe(
             (data: Agenda) => {
                 Object.assign(agenda, data);
             },
@@ -46,14 +50,9 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.getAgenda(this.agenda);
-        this.agendaService.getAgendaList().subscribe(
-            (data: Array<Dictionary>) => {
-                let list = data;
-            },
-            (err: any) => this.error = err);
     }
 
-    constructor(private agendaService: AgendaService) {
+    constructor(private agendaService: AgendaService, private route: ActivatedRoute) {
     }
 
     saveAgenda = () => {

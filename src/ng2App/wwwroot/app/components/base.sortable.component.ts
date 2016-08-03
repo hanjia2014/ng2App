@@ -1,4 +1,5 @@
-﻿export class SortableBase {
+﻿import { AfterViewInit } from '@angular/core';
+export class SortableBase implements AfterViewInit {
     SortableListId: string;
     IsNumberedList: boolean;
     constructor() {
@@ -28,5 +29,8 @@
                 }
             });
         })(jQuery);
+    }
+    ngAfterViewInit() {
+        this.SortableConfig();
     }
 }

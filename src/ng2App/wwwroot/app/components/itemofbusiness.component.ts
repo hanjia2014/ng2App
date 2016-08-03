@@ -17,7 +17,7 @@ import { Select2Component } from './plugins/select2';
     directives: [HearingOfEvidenceComponent, Multiselect, SELECT_DIRECTIVES, Select2Component],
     providers: []
 })
-export class ItemOfBusinessComponent extends SortableBase implements OnInit, AfterViewInit {
+export class ItemOfBusinessComponent extends SortableBase implements OnInit {
     @Input()
     item: ItemOfBusiness;
     @Input()
@@ -51,10 +51,6 @@ export class ItemOfBusinessComponent extends SortableBase implements OnInit, Aft
         this.SortableListId = 'draggableHearinglList' + this.itemOfBusinessIndex;
 
         this.selectId = 'mySel' + this.itemOfBusinessIndex;
-    }
-
-    ngAfterViewInit() {
-        this.SortableConfig();
     }
     constructor() {
         super();

@@ -13,12 +13,12 @@ namespace ng2App.Controllers
     {
         // GET: api/values
         [HttpGet]
-        public Dictionary<int, string> Get()
+        public string Get()
         {
-            var agendaList = new Dictionary<int, string>();
-            agendaList.Add(1, "The First Agenda");
-            agendaList.Add(2, "The Second Agenda");
-            return agendaList;
+            var agendaList = new List<AgendaSummary>();
+            agendaList.Add(new AgendaSummary { Id = 1, Name = "The First Agenda" });
+            agendaList.Add(new AgendaSummary { Id = 2, Name = "The Second Agenda" });
+            return JsonConvert.SerializeObject(agendaList);
         }
 
         // GET api/values/5

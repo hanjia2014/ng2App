@@ -10,10 +10,11 @@ import { IAgendaService } from './app.interfaces';
 import { Dictionary } from '../models/dictionary';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import { AgendaSummary } from '../models/agendasummary';
 
 @Injectable()
 export class AgendaService implements IAgendaService {
-    apiUrl: string = 'api/agenda/';
+    apiUrl: string = 'http://localhost:9344/api/agenda/';
     constructor(private http: Http) {
     }
     getItemOfBusinesses(agendaId: number): Observable<ItemOfBusiness[]> {
@@ -52,7 +53,7 @@ export class AgendaService implements IAgendaService {
         })
     }
 
-    getAgendaList(): Observable<Array<Dictionary>> {
+    getAgendaList(): Observable<Array<AgendaSummary>> {
         return this.http.get(this.apiUrl).map((res: Response) => {
             if (res.status != 200) {
                 throw new Error('No objects to retrieve! code status ' + res.status);

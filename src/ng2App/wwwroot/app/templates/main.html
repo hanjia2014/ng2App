@@ -1,0 +1,11 @@
+﻿<h1>Hello Main Component</h1>
+
+<ol type="1" id="{{SortableListId}}" class="list-sortable">
+    <li class="panel panel-info" *ngFor="let agenda of agendas">
+        <div class="panel-heading">You can drag this panel.</div>
+        <div class="panel-body">
+            <span>{{agenda.Name}}</span>
+            <input class="pull-right" type="button" (click)="openAgenda(agenda.Id)" value="Edit" />
+        </div>
+    </li>
+</ol>
