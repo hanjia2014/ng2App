@@ -33,6 +33,7 @@ import { DatePickerComponent } from './plugins/datepicker';
                 min-width: 1.2em;
                 text-align: center;
                 display: inline-block;
+                margin-left: -2em;
             }`],
     directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent],
     providers: []
