@@ -9,7 +9,6 @@ import { SortableBase } from './base.sortable.component';
     templateUrl: `app/templates/hearing-of-evidence.html`,
     styles: [`.panel-heading {
                     cursor: move;
-                    background-color:#FFDBB5EA !important;
               }
             `],
     directives: [MODAL_DIRECTIVES],
