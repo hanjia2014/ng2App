@@ -14,7 +14,7 @@ import { DatePickerComponent } from './plugins/datepicker';
     styles: [`#draggableItemList .panel-heading {
         cursor: move;
     }
-        .number-list ol {
+        /*.number-list ol {
             counter-reset: item;
         }
 
@@ -34,7 +34,7 @@ import { DatePickerComponent } from './plugins/datepicker';
                 text-align: center;
                 display: inline-block;
                 margin-left: -2em;
-            }`],
+            }*/`],
     directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent],
     providers: []
 })
