@@ -19,6 +19,9 @@ import { ActivatedRoute } from '@angular/router';
                 </agenda-detail>
                 <a href="#" class="btn btn-lg save-button" (click)="saveAgenda()">
                     <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
+                </a>
+                <a href="#" class="btn btn-lg save-button pull-right" (click)="printAgenda()">
+                    <span class="glyphicon glyphicon-print"></span> Print
                 </a>`,
     styles: [`.save-button{
         background-color: #d7f3d7;
@@ -61,5 +64,19 @@ export class AppComponent implements OnInit {
                 
             },
             (err: any) => this.error = err);
+    }
+
+    printAgenda = () => {
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+            //'#editor': function (element, renderer) {
+            //    return true;
+            //}
+        };
+        doc.fromHTML($('#agenda-detail').html(), 15, 15, {
+            'width': 170,
+            'elementHandlers': specialElementHandlers
+        });
+        doc.save('sample-file.pdf');
     }
 }

@@ -30,6 +30,7 @@
 /// <reference path="app/models/witness.js" />
 /// <reference path="app/services/app.interfaces.js" />
 /// <reference path="app/services/app.services.js" />
+/// <reference path="js/jspdf.min.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />

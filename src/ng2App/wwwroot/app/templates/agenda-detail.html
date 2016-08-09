@@ -1,4 +1,4 @@
-﻿<div *ngIf="agenda" class="container">
+﻿<div *ngIf="agenda" class="container" id="agenda-detail">
     <date-picker [id]="'test'" [IncludeTime]="true" (onValueChange)="dateChange($event)"></date-picker>
     <div class="warning">{{agendaDate}}</div>
     <h2>Details:</h2>
