@@ -7,11 +7,13 @@ import { Observable }     from 'rxjs/Observable';
 import { Response }     from '@angular/http';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Dictionary } from '../models/dictionary';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<h1 style="display:inline-block;">Agenda</h1><a style="margin-top: 20px; margin-bottom: 10px;" [routerLink]="['/agendas']" class="pull-right">Back to list</a>
+    template: `<h1 style="display:inline-block;">Agenda</h1>
+                <a style="margin-top: 20px; margin-bottom: 10px;" [routerLink]="['/agendas']" class="pull-right">Back to list</a>
+                <a style="margin-top: 20px; margin-bottom: 10px;" [routerLink]="['/preview']">Preview</a>
                 <agenda-detail [agenda]="agenda">
                     <div>
                         This is the end of the agenda
@@ -19,6 +21,9 @@ import { ActivatedRoute } from '@angular/router';
                 </agenda-detail>
                 <a href="#" class="btn btn-lg save-button" (click)="saveAgenda()">
                     <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
+                </a>
+                <a href="#" class="btn btn-lg save-button" (click)="previewAgenda(agenda)">
+                    <span class="glyphicon glyphicon glyphicon-eye-open"></span> Preview Agenda
                 </a>
                 <a href="#" class="btn btn-lg save-button pull-right" (click)="printAgenda()">
                     <span class="glyphicon glyphicon-print"></span> Print
@@ -55,7 +60,7 @@ export class AppComponent implements OnInit {
         this.getAgenda(this.agenda);
     }
 
-    constructor(private agendaService: AgendaService, private route: ActivatedRoute) {
+    constructor(private agendaService: AgendaService, private route: ActivatedRoute, private router: Router) {
     }
 
     saveAgenda = () => {
@@ -64,6 +69,10 @@ export class AppComponent implements OnInit {
                 
             },
             (err: any) => this.error = err);
+    }
+
+    previewAgenda = (agenda: Agenda) => {
+        this.router.navigate(['/preview']);
     }
 
     printAgenda = () => {

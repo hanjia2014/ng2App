@@ -2,6 +2,7 @@
 import { LandingComponent } from './landing'
 import { MainComponent } from './main.component'
 import { AppComponent } from './app.component'
+import { AgendaPreviewComponent } from './agenda.preview.component'
 
 const routes: RouterConfig = [
     {
@@ -15,6 +16,10 @@ const routes: RouterConfig = [
     {
         path: 'agenda/:id',
         component: AppComponent
+    },
+    {
+        path: 'preview',
+        component: AgendaPreviewComponent
     }
 ];
 
