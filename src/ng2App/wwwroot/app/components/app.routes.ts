@@ -3,6 +3,7 @@ import { LandingComponent } from './landing'
 import { MainComponent } from './main.component'
 import { AppComponent } from './app.component'
 import { AgendaPreviewComponent } from './agenda.preview.component'
+import { Agenda } from '../models/agenda';
 
 const routes: RouterConfig = [
     {

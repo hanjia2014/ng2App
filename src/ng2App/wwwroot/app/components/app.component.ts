@@ -72,6 +72,7 @@ export class AppComponent implements OnInit {
     }
 
     previewAgenda = (agenda: Agenda) => {
+        sessionStorage.setItem("previewAgenda", JSON.stringify(agenda));
         this.router.navigate(['/preview']);
     }
 
