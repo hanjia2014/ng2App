@@ -4,16 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app',
-    template: `<div class="container">
-                <div id="preview-detail">
-                <h1>Preview - Agenda</h1>
-                <span style="color: red">{{previewAgenda.Name}}</span>
-                </div>
-                <a href="#" class="btn btn-lg save-button pull-right" (click)="printAgenda()">
-                    <span class="glyphicon glyphicon-print"></span> Print
-                </a>
-                </div>
-                `,
+    templateUrl: `agenda-preview.html`,
     styles: [``],
     directives: [],
     providers: []
