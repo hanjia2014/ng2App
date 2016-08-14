@@ -14,6 +14,6 @@
   `
 })
 export class Tab {
-    @Input('tabTitle') title: string;
-    @Input() active = false;
+    @Input() title: string;
+    active: boolean = false;
 }

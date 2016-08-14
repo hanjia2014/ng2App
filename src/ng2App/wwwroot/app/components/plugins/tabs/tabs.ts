@@ -26,7 +26,7 @@ export class Tabs implements AfterContentInit {
 
     selectTab(tab: Tab) {
         // deactivate all tabs
-        this.tabs.toArray().forEach(tab => tab.active = false);
+        this.tabs.forEach(tab => tab.active = false);
         // activate the tab the user has clicked on.
         tab.active = true;
     }

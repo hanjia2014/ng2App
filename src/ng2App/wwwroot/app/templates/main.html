@@ -1,11 +1,16 @@
 ﻿<h1>Agenda List</h1>
 
-<ol type="1" id="{{SortableListId}}" class="list-sortable">
-    <li class="panel panel-info" *ngFor="let agenda of agendas">
-        <div class="panel-heading">You can drag this panel.</div>
-        <div class="panel-body">
-            <span>{{agenda.Name}}</span>
-            <input class="pull-right" type="button" (click)="openAgenda(agenda.Id)" value="Edit" />
-        </div>
-    </li>
-</ol>
+<tabs>
+    <tab [title]="'Agendas'">
+        <ol type="1" id="{{SortableListId}}" class="list-sortable">
+            <li class="panel panel-info" *ngFor="let agenda of agendas">
+                <div class="panel-heading">You can drag this panel.</div>
+                <div class="panel-body">
+                    <span>{{agenda.Name}}</span>
+                    <input class="pull-right" type="button" (click)="openAgenda(agenda.Id)" value="Edit" />
+                </div>
+            </li>
+        </ol>
+    </tab>
+    <tab [title]="'Tab 2'">Tab 2 Content</tab>
+</tabs>

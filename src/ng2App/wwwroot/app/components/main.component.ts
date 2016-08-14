@@ -8,6 +8,8 @@ import { Response }     from '@angular/http';
 import { Dictionary } from '../models/dictionary';
 import { SortableBase } from './base.sortable.component';
 import { Router } from '@angular/router';
+import { Tabs } from './plugins/tabs/tabs';
+import { Tab } from './plugins/tabs/tab';
 
 @Component({
     selector: 'app',
@@ -16,7 +18,7 @@ import { Router } from '@angular/router';
                     cursor: move;
               }
             `],
-    directives: [],
+    directives: [Tabs, Tab],
     providers: [AgendaService]
 })
 export class MainComponent extends SortableBase implements OnInit, AfterViewInit {
