@@ -11,3 +11,7 @@ export interface IAgendaService {
     saveAgenda: (agenda: Agenda) => Observable<Response>;
     getAgendaList: () => Observable<Array<AgendaSummary>>;
 }
+
+export interface ITogglable {
+    toggle: (eleId: string) => void;
+}

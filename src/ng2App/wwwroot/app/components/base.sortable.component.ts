@@ -1,7 +1,11 @@
 ﻿import { AfterViewInit } from '@angular/core';
-export class SortableBase implements AfterViewInit {
+import { ITogglable } from '../services/app.interfaces';
+
+export class SortableBase implements AfterViewInit, ITogglable {
     SortableListId: string;
     IsNumberedList: boolean;
+    isExpand: boolean;
+
     constructor() {
         this.IsNumberedList = true;
     }
@@ -32,5 +36,11 @@ export class SortableBase implements AfterViewInit {
     }
     ngAfterViewInit() {
         this.SortableConfig();
+    }
+
+    toggle() {
+        this.isExpand = !this.isExpand;
+        var eleId = "#" + this.SortableListId;
+        $(eleId).toggle(500);
     }
 }

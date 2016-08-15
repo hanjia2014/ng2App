@@ -19,6 +19,8 @@
     <select2 [id]="selectId" [multiple]="false" [data]="items2" (selected)="selected($event)"></select2>
 
     <img src="../../images/plus.ico" width="20" (click)="addItem()" />
+
+    <a href="#" class="pull-right" (click)="toggle()">{{isExpand ? 'Expand' : 'Collapse'}}</a>
 </p>
 
 <!-- Bootstrap 3 panel list. -->
