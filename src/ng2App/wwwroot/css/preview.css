@@ -1,0 +1,266 @@
+﻿body
+{
+    font-family: "Segoe UI", 'Times New Roman';
+    font-size: 12px;
+    /*overflow-y: auto;*/
+}
+
+h1 {
+    color: #004c38;
+    font-size: 25px;
+    line-height: 1;
+    margin-bottom: 1em;
+    font-family: "Segoe UI";
+    font-weight: normal;
+}
+
+.sc-title h1 {
+    text-align: left;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 24px 0 12px;
+    color: #004c38;
+    font-family: "Segoe UI";
+    font-weight: normal;
+}
+
+.item-heading {
+    /*font-weight: bold*/
+    font-family: "Segoe UI", "Times New Roman";
+    /*text-decoration: underline;*/
+    color: #333333;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.item-freeText {
+    font-family: "Segoe UI", "Times New Roman";
+    font-style: italic;
+    color: #333333;
+}
+
+.item-heading-bold {
+    /*font-weight: bold*/
+    font-family: "Segoe UI", "Times New Roman";
+    font-weight: bold;
+}
+
+h3 {
+    color: #333333;
+    font-family: "Segoe UI","Times", arial, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+    color: #004C38;
+    font-weight: 600;
+    font-family: "Segoe UI";
+    margin-bottom: 0;
+}
+
+h4 .bc {
+    color: #333333;
+    font-weight: normal;
+    padding: 0;
+}
+
+h5 {
+    font-size: 14px;
+    color: #004C38;
+    font-family: "Segoe UI";
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+h5 .bc {
+    color: #333333;
+    font-weight: normal;
+    padding: 0;
+}
+
+.personnel {
+    color: #333333;
+    font-weight: normal;
+    padding: 0;
+    font-size: 14px;
+}
+
+.item-model {
+    margin-bottom: 5px
+}
+
+.related-document {
+    margin-bottom: 5px;
+}
+
+.related-document-arrow {
+    margin-top: 0.35em;
+    float: right;
+    margin-right: 10px;
+}
+
+.member-search-arrow {
+    margin-top: 1.5em;
+    float: right;
+    margin-right: 10px;
+}
+
+a {
+    font-size: 12px;
+    color: #0645AC;
+}
+
+
+ol{
+counter-reset: item;
+margin-top: 1em;
+/*margin-left: 1.5em;*/
+}
+
+.ol-sub{
+counter-reset: item;
+margin-top: 0;
+/*margin-left: 1.5em;*/
+}
+
+/* ol ol{
+counter-reset: item;
+margin-top: 1em;
+margin-left: 1.5em;
+}*/
+
+    ol > li:before {
+        content: counters(item,".") ".";
+        counter-increment: item;
+        margin-right: 100%;
+        padding-left: 2em;
+        position: absolute;
+        right: 1em;
+        top: 0.1em;
+    }
+
+.decrease:before {
+    content: "";
+    counter-increment: item 0;
+}
+
+.time {
+    color: #333333;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+    width: 30%;
+    float: right;
+    display: inline;
+    font-weight: normal;
+}
+
+.timeWithExpand {
+    color: #333333;
+    font-size: 12px;
+    text-align: right;
+    white-space: nowrap;
+    float: right;
+    display: inline;
+}
+
+.relatedDocsDiv {
+    border-bottom: solid #00CC99 thin;
+    border-top: solid #00CC99 thin;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    transition: 0.45s ease-out; 
+    display: block;
+    overflow: hidden;
+}
+
+.memberSearchDiv {
+    border: solid #80bfbf thin;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    transition: 0.45s ease-out; 
+    display: block;
+    overflow: hidden;
+}
+
+.nested {
+    /*margin-top: 10px;*/
+    margin-bottom: 15px;
+}
+
+  .toggle-trigger .time {
+    padding-right: 4em; }
+  @media all and (max-width: 801px) {
+    .time {
+      display: block; } }
+
+  .list-agenda > li {
+  color: #333333;
+  font-family: "Segoe UI", "Times New Roman", arial, sans-serif; 
+
+  }
+
+  /*.listdetail {margin-left:1.5em}*/
+
+ 
+.list-agenda h3 {
+  font-family: "Segoe UI", "Times New Roman", arial, sans-serif; }
+  .list-agenda h3 span:first-child {
+    padding-right: 1em;
+    width: 69%; }
+
+  
+
+    @media all and (max-width: 801px) {
+      .list-agenda h3 span:first-child {
+        width: 100%; } }
+
+.org-detail h4 {
+  font-weight: bold; }
+  .list-agenda h4 span:first-child {
+    padding-right: 1em;
+    width: 69%; }
+    .listdetail h4 {
+      font-weight: normal; }
+       .listdetail h4 span {
+           display: inline-block;
+           vertical-align: middle;
+            zoom: 1;
+       }
+       .listdetail h5 {
+           margin-bottom: 5px;
+       }
+       .listdetail h4 span:first-child {
+        padding-right: 1em;
+        width: 69%; }
+      
+
+.ms-dlgFrame .ms-backgroundImage {
+     overflow-y: hidden;
+}
+
+.annotated {
+    height: 18px; 
+    width: 18px;
+    vertical-align: middle;
+    margin-left: 0.4em;
+}
+
+.folder-img {
+    vertical-align: middle
+}
+
+/*.ms-core-overlay {
+    overflow-y: hidden !important;
+}*/ 
