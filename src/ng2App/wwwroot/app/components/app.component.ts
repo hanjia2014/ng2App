@@ -8,33 +8,42 @@ import { Response }     from '@angular/http';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Dictionary } from '../models/dictionary';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Tabs } from './plugins/tabs/tabs';
+import { Tab } from './plugins/tabs/tab';
+import { AgendaPreviewComponent } from './agenda.preview.component';
 
 @Component({
     selector: 'app',
     template: `<h1 style="display:inline-block;">Agenda</h1>
                 <a style="margin-top: 20px; margin-bottom: 10px;" [routerLink]="['/agendas']" class="pull-right">Back to list</a>
-                <a style="margin-top: 20px; margin-bottom: 10px;" [routerLink]="['/preview']">Preview</a>
-                <agenda-detail [agenda]="agenda">
-                    <div>
-                        This is the end of the agenda
-                    </div>
-                </agenda-detail>
-                <a href="#" class="btn btn-lg save-button" (click)="saveAgenda()">
-                    <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
-                </a>
-                <a href="#" class="btn btn-lg save-button" (click)="previewAgenda(agenda)">
-                    <span class="glyphicon glyphicon glyphicon-eye-open"></span> Preview Agenda
-                </a>
-                <a href="#" class="btn btn-lg save-button pull-right" (click)="printAgenda()">
-                    <span class="glyphicon glyphicon-print"></span> Print
-                </a>`,
+                <tabs>
+                <tab [title]="'Agendas'">
+                    <agenda-detail [agenda]="agenda">
+                        <div>
+                            This is the end of the agenda
+                        </div>
+                    </agenda-detail>
+                    <a href="#" class="btn btn-lg save-button" (click)="saveAgenda()">
+                        <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
+                    </a>
+                    <a href="#" class="btn btn-lg save-button" (click)="previewAgenda(agenda)">
+                        <span class="glyphicon glyphicon glyphicon-eye-open"></span> Preview Agenda
+                    </a>
+                    <a href="#" class="btn btn-lg save-button pull-right" (click)="printAgenda()">
+                        <span class="glyphicon glyphicon-print"></span> Print
+                    </a>
+                </tab>
+                <tab [title]="'Preview'">
+                    <agenda-preview [agenda]="agenda"></agenda-preview>
+                </tab>
+                </tabs>`,
     styles: [`.save-button{
         background-color: #d7f3d7;
         border-color: green;
         border-width: thick;
         color: darkgreen;
     }`],
-    directives: [AgendaComponent, ROUTER_DIRECTIVES],
+    directives: [AgendaComponent, ROUTER_DIRECTIVES, Tabs, Tab, AgendaPreviewComponent],
     providers: [AgendaService]
 })
 export class AppComponent implements OnInit {
