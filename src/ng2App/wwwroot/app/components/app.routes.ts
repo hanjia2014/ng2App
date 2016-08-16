@@ -8,7 +8,8 @@ import { Agenda } from '../models/agenda';
 const appRoutes: Routes = [
     {
         path: '',
-        component: LandingComponent
+        component: LandingComponent,
+        pathMatch: 'full',        
     },
     {
         path: 'agendas',
