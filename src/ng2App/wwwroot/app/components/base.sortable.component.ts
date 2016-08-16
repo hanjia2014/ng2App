@@ -38,9 +38,13 @@ export class SortableBase implements AfterViewInit, ITogglable {
         this.SortableConfig();
     }
 
-    toggle() {
+    toggle(e: any) {
+        e.preventDefault();
+
         this.isExpand = !this.isExpand;
         var eleId = "#" + this.SortableListId;
-        $(eleId).toggle(500);
+        $(eleId).toggle("fade", {
+            direction: 'up'
+        }, 500);
     }
 }

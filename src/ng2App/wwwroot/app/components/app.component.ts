@@ -23,7 +23,7 @@ import { AgendaPreviewComponent } from './agenda.preview.component';
                             This is the end of the agenda
                         </div>
                     </agenda-detail>
-                    <a href="#" class="btn btn-lg save-button" (click)="saveAgenda()">
+                    <a href="#" class="btn btn-lg save-button" (click)="saveAgenda($event)">
                         <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
                     </a>
                     <a href="#" class="btn btn-lg save-button" (click)="previewAgenda(agenda)">
@@ -39,8 +39,8 @@ import { AgendaPreviewComponent } from './agenda.preview.component';
                 </tabs>`,
     styles: [`.save-button{
         background-color: #d7f3d7;
-        border-color: green;
-        border-width: thick;
+        /*border-color: green;
+        border-width: thick;*/
         color: darkgreen;
     }`],
     directives: [AgendaComponent, ROUTER_DIRECTIVES, Tabs, Tab, AgendaPreviewComponent],
@@ -72,7 +72,8 @@ export class AppComponent implements OnInit {
     constructor(private agendaService: AgendaService, private route: ActivatedRoute, private router: Router) {
     }
 
-    saveAgenda = () => {
+    saveAgenda = (e: any) => {
+        e.preventDefault();
         this.agendaService.saveAgenda(this.agenda).subscribe(
             (data: Response) => {
                 

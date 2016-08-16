@@ -20,7 +20,9 @@
 
     <img src="../../images/plus.ico" width="20" (click)="addItem()" />
 
-    <a href="#" class="pull-right" (click)="toggle()">{{isExpand ? 'Expand' : 'Collapse'}}</a>
+    <a href="#" class="pull-right" (click)="toggle($event)">
+        <img width="25" src="../../images/arrow-{{isExpand ? 'down' : 'up'}}.png" />
+    </a>
 </p>
 
 <!-- Bootstrap 3 panel list. -->
