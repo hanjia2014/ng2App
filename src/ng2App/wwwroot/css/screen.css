@@ -156,7 +156,7 @@ em {
     }
 }
 
-@font-face {
+/*@font-face {
     font-family: 'segoe-uiregular';
     src: url("../fonts/segoeui_0-webfont.eot");
     src: url("../fonts/segoeui_0-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/segoeui_0-webfont.woff") format("woff"), url("../fonts/segoeui_0-webfont.ttf") format("truetype"), url("../fonts/segoeui_0-webfont.svg#segoe_uiregular") format("svg");
@@ -166,7 +166,6 @@ em {
 
 @font-face {
     font-family: 'segoe-uisemibold';
-    /* src: url('../fonts/seguisb.eot'); */
     src: url("../fonts/seguisb.woff") format("woff"), url("../fonts/seguisb.ttf") format("truetype"), url("../fonts/seguisb.svg#seguisb") format("svg");
     font-weight: normal;
     font-style: normal;
@@ -178,7 +177,7 @@ em {
     src: url("../fonts/linecons.eot?#iefix") format("embedded-opentype"), url("../fonts/linecons.woff") format("woff"), url("../fonts/linecons.ttf") format("truetype"), url("../fonts/linecons.svg#linecons") format("svg");
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 h2, h3 {
     font-family: "segoe-uisemibold", arial, sans-serif;
