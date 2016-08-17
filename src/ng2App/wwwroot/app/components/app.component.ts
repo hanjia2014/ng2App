@@ -23,13 +23,13 @@ import { AgendaPreviewComponent } from './agenda.preview.component';
                             This is the end of the agenda
                         </div>
                     </agenda-detail>
-                    <a href="#" class="btn btn-lg save-button" (click)="saveAgenda($event)">
+                    <a class="btn btn-lg save-button" (click)="saveAgenda($event)">
                         <span class="glyphicon glyphicon-floppy-disk"></span> Save Agenda
                     </a>
-                    <a href="#" class="btn btn-lg save-button" (click)="previewAgenda(agenda)">
+                    <a class="btn btn-lg save-button" (click)="previewAgenda(agenda)">
                         <span class="glyphicon glyphicon glyphicon-eye-open"></span> Preview Agenda
                     </a>
-                    <a href="#" class="btn btn-lg save-button pull-right" (click)="printAgenda()">
+                    <a class="btn btn-lg save-button pull-right" (click)="printAgenda()">
                         <span class="glyphicon glyphicon-print"></span> Print
                     </a>
                 </tab>
@@ -38,11 +38,12 @@ import { AgendaPreviewComponent } from './agenda.preview.component';
                 </tab>
                 </tabs>`,
     styles: [`.save-button{
-        background-color: #d7f3d7;
-        /*border-color: green;
-        border-width: thick;*/
-        color: darkgreen;
-    }`],
+            background-color: #d7f3d7;
+            /*border-color: green;
+            border-width: thick;*/
+            color: darkgreen;
+            }
+            a {cursor: pointer; cursor: hand;}`],
     directives: [AgendaComponent, ROUTER_DIRECTIVES, Tabs, Tab, AgendaPreviewComponent],
     providers: [AgendaService]
 })
