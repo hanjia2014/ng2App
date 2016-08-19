@@ -5,6 +5,9 @@
     Agenda -- {{agenda.Name}}
     <br />
     Item of Business ({{agenda.ItemOfBusinesses.length}})
+    <a href="#" class="pull-right" (click)="toggleAll($event)">
+        <img width="25" src="../../images/arrow-{{isExpand ? 'down' : 'up'}}.png" />
+    </a>
     <img src="../../images/plus.ico" width="20" (click)="addItemOfBusiness()" />
     <!--<div *ngFor="let item of agenda.ItemOfBusinesses">
         <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item"></item-of-business>

@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input, ContentChildren, AfterViewInit } from '@angular/core';
+﻿import { Component, OnInit, Input, ContentChildren, ViewChildren, AfterViewInit, QueryList } from '@angular/core';
 import { Agenda } from '../models/agenda';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import {ItemOfBusinessComponent} from './itemofbusiness.component';
@@ -42,6 +42,9 @@ export class AgendaComponent extends SortableBase implements OnInit {
     @Input()
     agenda: Agenda;
     agendaDate: Date;
+
+    @ViewChildren(ItemOfBusinessComponent) children: QueryList<ItemOfBusinessComponent>;
+
     addItemOfBusiness = () => {
         var item = new ItemOfBusiness();
         item.Name = "New Item";
@@ -64,5 +67,10 @@ export class AgendaComponent extends SortableBase implements OnInit {
 
     removeItemOfBusiness = (index: number) => {
         this.agenda.ItemOfBusinesses.splice(index, 1);
+    }
+
+    toggleAll = (e: any) => {
+        this.isExpand = !this.isExpand;
+        this.children.toArray().forEach((child : ItemOfBusinessComponent) => child.toggle(e));
     }
 }
