@@ -3,7 +3,7 @@
 @Component({
     selector: 'date-picker',
     template: `<div class="input-group date" id="{{id}}">
-                    <input type="text" class="form-control" >
+                    <input type="text" [(ngModel)]="selectedDate" class="form-control" id="{{id}}-dateValue" >
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>`,
     styles: [],
@@ -18,6 +18,8 @@ export class DatePickerComponent implements AfterViewInit {
     @Output()
     onValueChange = new EventEmitter<Date>();
 
+    selectedDate: string;
+
     ngAfterViewInit() {
         var options = {
             pick12HourFormat: true,
@@ -25,9 +27,10 @@ export class DatePickerComponent implements AfterViewInit {
         };
         
         $("#" + this.id).datetimepicker(options).on("change", (e: any) => {
-            this.onValueChange.next(new Date(e.timeStamp));
+            var date = e.delegateTarget.children[0].value;
+
+            this.onValueChange.next(new Date(date));
         });
-        
     }
     constructor() {
         
