@@ -47,6 +47,8 @@ namespace ng2App.Controllers
         [HttpPost]
         public bool Post([FromBody]Agenda value)
         {
+            var agendaJson = JsonConvert.SerializeObject(value);
+            var doc = JsonConvert.DeserializeXNode(agendaJson, "Agenda");
             return value != null;
         }
 

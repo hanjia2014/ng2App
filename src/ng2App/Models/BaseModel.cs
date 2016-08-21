@@ -10,8 +10,8 @@ namespace ng2App.Models
 
         public BaseModel()
         {
-            From = new DateTime();
-            To = new DateTime();
+            From = DateTime.Now;
+            To = DateTime.Now;
         }
     }
 }
