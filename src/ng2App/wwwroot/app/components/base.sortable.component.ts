@@ -47,4 +47,14 @@ export class SortableBase implements AfterViewInit, ITogglable {
             direction: 'up'
         }, 500);
     }
+
+    toggleItemOfBusiness(e: any, id: number) {
+        e.preventDefault();
+
+        this.isExpand = !this.isExpand;
+        var eleId = "#" + this.SortableListId;
+        $(eleId).toggle("fade", {
+            direction: 'up'
+        }, 500);
+    }
 }
