@@ -196,6 +196,7 @@
 --reference:C:\Users\hanj\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\hanj\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\hanj\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
+--reference:C:\Users\hanj\.nuget\packages\System.Xml.XmlDocument\4.0.1\ref\netstandard1.3\System.Xml.XmlDocument.dll
 --resource:"C:\Projects\ng2App\src\ng2App\obj\Debug\netcoreapp1.0\ng2Appdotnet-compile.deps.json",ng2App.deps.json
 C:\Projects\ng2App\src\ng2App\Program.cs
 C:\Projects\ng2App\src\ng2App\Startup.cs

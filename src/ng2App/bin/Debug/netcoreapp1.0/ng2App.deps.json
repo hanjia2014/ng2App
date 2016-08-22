@@ -31,7 +31,8 @@
           "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
           "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
           "System.Net.Primitives": "4.0.11",
-          "Newtonsoft.Json": "9.0.1"
+          "Newtonsoft.Json": "9.0.1",
+          "System.Xml.XmlDocument": "4.0.1"
         },
         "runtime": {
           "ng2App.dll": {}
@@ -3242,6 +3243,9 @@
           "System.Text.Encoding": "4.0.11",
           "System.Threading": "4.0.11",
           "System.Xml.ReaderWriter": "4.0.11"
+        },
+        "compile": {
+          "ref/netstandard1.3/System.Xml.XmlDocument.dll": {}
         },
         "compileOnly": true
       },
