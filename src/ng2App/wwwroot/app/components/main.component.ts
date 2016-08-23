@@ -10,7 +10,6 @@ import { SortableBase } from './base.sortable.component';
 import { Router } from '@angular/router';
 import { Tabs } from './plugins/tabs/tabs';
 import { Tab } from './plugins/tabs/tab';
-import { SpinnerComponent } from './plugins/spinner/spinner';
 
 @Component({
     selector: 'app',
@@ -19,25 +18,25 @@ import { SpinnerComponent } from './plugins/spinner/spinner';
                     cursor: move;
               }
             `],
-    directives: [Tabs, Tab, SpinnerComponent],
+    directives: [Tabs, Tab],
     providers: [AgendaService]
 })
 export class MainComponent extends SortableBase implements OnInit, AfterViewInit {
     agendas: Array<AgendaSummary> = new Array<AgendaSummary>();
     error: any;
-    isRequesting: boolean;
 
     getAgendaList = () => {
         this.agendaService.getAgendaList().subscribe(
             (data: Array<AgendaSummary>) => {
                 Object.assign(this.agendas, data);
-                this.isRequesting = false;
+                this.spinner.stop();
             },
             (err: any) => this.error = err);
     }
 
     ngOnInit() {
-        this.isRequesting = true;
+        var listElm = document.getElementById("spinner");
+        this.spinner.spin(listElm);
         this.getAgendaList();
         this.SortableListId = 'draggableAgendalList';
     }

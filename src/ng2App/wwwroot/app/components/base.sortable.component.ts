@@ -5,6 +5,7 @@ export class SortableBase implements AfterViewInit, ITogglable {
     SortableListId: string;
     IsNumberedList: boolean;
     isExpand: boolean;
+    spinner: Spinner = new Spinner({ radius: 10 });
 
     constructor() {
         this.IsNumberedList = true;
