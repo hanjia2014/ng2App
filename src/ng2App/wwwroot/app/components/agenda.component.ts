@@ -7,6 +7,7 @@ import { AgendaFooterComponent } from './agenda.footer.component';
 import { BaseModel } from '../models/basemodel'
 import { SortableBase } from './base.sortable.component';
 import { DatePickerComponent } from './plugins/datepicker';
+import { TestDragula } from './test.dragula';
 
 @Component({
     selector: 'agenda-detail',
@@ -35,7 +36,7 @@ import { DatePickerComponent } from './plugins/datepicker';
                 display: inline-block;
                 margin-left: -2em;
             }*/`],
-    directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent],
+    directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent, TestDragula],
     providers: []
 })
 export class AgendaComponent extends SortableBase implements OnInit {
