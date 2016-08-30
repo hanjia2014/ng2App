@@ -8,9 +8,12 @@ import { BaseModel } from '../models/basemodel'
 import { SortableBase } from './base.sortable.component';
 import { DatePickerComponent } from './plugins/datepicker';
 import { TestDragula } from './test.dragula';
+import { Dragula } from './plugins/dragula/src/app/directives/dragula.directive';
+import { DragulaService } from './plugins/dragula/src/app/providers/dragula.provider';
 
 @Component({
     selector: 'agenda-detail',
+    viewProviders: [DragulaService],
     templateUrl: `app/templates/agenda-detail.html`,
     styles: [`#draggableItemList .panel-heading {
         cursor: move;
@@ -36,7 +39,7 @@ import { TestDragula } from './test.dragula';
                 display: inline-block;
                 margin-left: -2em;
             }*/`],
-    directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent, TestDragula],
+    directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent, TestDragula, Dragula],
     providers: []
 })
 export class AgendaComponent extends SortableBase implements OnInit {

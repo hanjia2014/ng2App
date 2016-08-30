@@ -4,14 +4,16 @@
     <h2>Details:</h2>
     Agenda -- {{agenda.Name}}
     <br />
+    <test-dragula></test-dragula>
+    <br />
     Item of Business ({{agenda.ItemOfBusinesses.length}})
     <a href="#" class="pull-right" (click)="toggleAll($event)">
         <img width="25" src="../../images/arrow-{{isExpand ? 'down' : 'up'}}.png" />
     </a>
     <img src="../../images/plus.ico" width="20" (click)="addItemOfBusiness()" />
-    <test-dragula></test-dragula>
 
-    <ol type="1" id="{{SortableListId}}" class="list-sortable" [class.number-list]="IsNumberedList">
+
+    <!--<ol type="1" id="{{SortableListId}}" class="list-sortable" [class.number-list]="IsNumberedList">
         <li class="panel panel-info" *ngFor="let item of agenda.ItemOfBusinesses; let i = index">
             <div class="panel-heading">
                 You can drag this panel
@@ -22,8 +24,13 @@
             </div>
             <input type="button" (click)="removeItemOfBusiness(i)" class="btn-group btn-danger" value="Remove" />
         </li>
-    </ol>
+    </ol>-->
 
+    <div class='wrapper'>
+        <div *ngFor='let item of agenda.ItemOfBusinesses; let i = index' class='container' [dragula]='"another-bag"' [dragulaModel]='many'>
+            <item-of-business (itemUpdateOutput)="itemListener($event)" [item]="item" [itemOfBusinessIndex]="i"></item-of-business>
+        </div>
+    </div>
 
     <agenda-footer [subItemLength]="agenda.ItemOfBusinesses.length"></agenda-footer>
 </div>
