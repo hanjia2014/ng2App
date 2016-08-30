@@ -23,6 +23,7 @@
 /// <reference path="app/models/witness.js" />
 /// <reference path="app/services/app.interfaces.js" />
 /// <reference path="app/services/app.services.js" />
+/// <reference path="dragula/js/dragula.js" />
 /// <reference path="js/jspdf.min.js" />
 /// <reference path="js/site.js" />
 /// <reference path="js/xeponline.jqplugin.js" />
