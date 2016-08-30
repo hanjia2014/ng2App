@@ -62,8 +62,13 @@ export class AgendaComponent extends SortableBase implements OnInit {
     itemListener(item: BaseModel) {
         console.log(item.Name + ' created');
     }
-    constructor() {
+    constructor(private dragulaService: DragulaService) {
         super();
+        dragulaService.setOptions('sixth-bag', {
+            moves: (el: any, container: any, handle: any) => {
+                return handle.className === 'handle';
+            }
+        });
     }
     public dateChange(value: Date) {
         this.agendaDate = value;
