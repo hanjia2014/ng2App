@@ -3,6 +3,8 @@ import { ITogglable } from '../services/app.interfaces';
 
 export class SortableBase implements AfterViewInit, ITogglable {
     SortableListId: string;
+    AccordionId: string;
+    IsAccordion: boolean;
     IsNumberedList: boolean;
     isExpand: boolean;
     spinner: Spinner = new Spinner({ radius: 10 });
@@ -10,6 +12,31 @@ export class SortableBase implements AfterViewInit, ITogglable {
     constructor() {
         this.IsNumberedList = true;
     }
+    private AccordionConfig() {
+        var eleId = '#' + this.AccordionId;
+
+        (function ($: any) {
+            var accordion = $(eleId);
+
+            accordion
+                .accordion({
+                    header: "> div > h3"
+                })
+                .sortable({
+                    axis: "y",
+                    handle: "h3",
+                    stop: (event: any, ui: any) => {
+                        // IE doesn't register the blur when sorting
+                        // so trigger focusout handlers to remove .ui-state-focus
+                        ui.item.children("h3").triggerHandler("focusout");
+
+                        // Refresh accordion to handle new order
+                        $(this).accordion("refresh");
+                    }
+                });
+        });
+    }
+
     public SortableConfig() {
         var eleId = '#' + this.SortableListId;
 
@@ -37,6 +64,7 @@ export class SortableBase implements AfterViewInit, ITogglable {
     }
     ngAfterViewInit() {
         this.SortableConfig();
+        this.AccordionConfig();
     }
 
     toggle(e: any) {
