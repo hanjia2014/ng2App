@@ -10,8 +10,8 @@
  * see: http://eonasdan.github.io/bootstrap-datetimepicker or https://github.com/Eonasdan/bootstrap-datetimepicker for details.
  */
 
-/// <reference path="../jquery/jquery.d.ts"/>
-/// <reference path="../moment/moment.d.ts"/>
+/// <reference path="jquery.d.ts"/>
+/// <reference path="moment/moment.d.ts"/>
 
 declare namespace BootstrapV3DatetimePicker {
 

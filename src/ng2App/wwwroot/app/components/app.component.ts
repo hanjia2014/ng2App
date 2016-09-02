@@ -1,13 +1,12 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { AgendaService } from '../services/app.services';
 import { Agenda } from '../models/agenda';
-import { ItemOfBusiness } from '../models/itemofbusiness';
-import { AgendaComponent } from './agenda.component';
 import { Observable }     from 'rxjs/Observable';
 import { Response }     from '@angular/http';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { Dictionary } from '../models/dictionary';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ItemOfBusiness } from '../models/itemofbusiness';
+import { AgendaComponent } from './agenda.component';
 import { Tabs } from './plugins/tabs/tabs';
 import { Tab } from './plugins/tabs/tab';
 import { AgendaPreviewComponent } from './agenda.preview.component';
@@ -44,7 +43,6 @@ import { AgendaPreviewComponent } from './agenda.preview.component';
             color: darkgreen;
             }
             a {cursor: pointer; cursor: hand;}`],
-    directives: [AgendaComponent, ROUTER_DIRECTIVES, Tabs, Tab, AgendaPreviewComponent],
     providers: [AgendaService]
 })
 export class AppComponent implements OnInit {

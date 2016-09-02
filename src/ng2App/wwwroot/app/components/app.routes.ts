@@ -1,10 +1,9 @@
-﻿import { provideRouter, RouterConfig, RouterModule, Routes }  from '@angular/router';
+﻿import { RouterModule, Routes }  from '@angular/router';
 import { LandingComponent } from './landing'
 import { MainComponent } from './main.component'
 import { AppComponent } from './app.component'
 import { AgendaPreviewComponent } from './agenda.preview.component'
 import { Agenda } from '../models/agenda';
-import { TestAccordionComponent } from './test.accordion';
 
 const appRoutes: Routes = [
     {
@@ -23,10 +22,6 @@ const appRoutes: Routes = [
     {
         path: 'preview',
         component: AgendaPreviewComponent
-    },
-    {
-        path: 'accordion',
-        component: TestAccordionComponent
     }
 ];
 

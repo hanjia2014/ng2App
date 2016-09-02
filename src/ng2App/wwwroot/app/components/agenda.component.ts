@@ -3,17 +3,13 @@ import { Agenda } from '../models/agenda';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import {ItemOfBusinessComponent} from './itemofbusiness.component';
 import { HearingOfEvidence } from '../models/hearingofevidence';
-import { AgendaFooterComponent } from './agenda.footer.component';
 import { BaseModel } from '../models/basemodel'
 import { SortableBase } from './base.sortable.component';
 import { DatePickerComponent } from './plugins/datepicker';
-import { TestDragula } from './test.dragula';
-import { Dragula } from './plugins/dragula/src/app/directives/dragula.directive';
-import { DragulaService } from './plugins/dragula/src/app/providers/dragula.provider';
+import { AgendaFooterComponent } from './agenda.footer.component';
 
 @Component({
     selector: 'agenda-detail',
-    viewProviders: [DragulaService],
     templateUrl: `app/templates/agenda-detail.html`,
     styles: [`#draggableItemList .panel-heading {
         cursor: move;
@@ -39,7 +35,6 @@ import { DragulaService } from './plugins/dragula/src/app/providers/dragula.prov
                 display: inline-block;
                 margin-left: -2em;
             }*/`],
-    directives: [ItemOfBusinessComponent, AgendaFooterComponent, DatePickerComponent, TestDragula, Dragula],
     providers: []
 })
 export class AgendaComponent extends SortableBase implements OnInit {
@@ -62,13 +57,8 @@ export class AgendaComponent extends SortableBase implements OnInit {
     itemListener(item: BaseModel) {
         console.log(item.Name + ' created');
     }
-    constructor(private dragulaService: DragulaService) {
+    constructor() {
         super();
-        dragulaService.setOptions('sixth-bag', {
-            moves: (el: any, container: any, handle: any) => {
-                return handle.className === 'handle';
-            }
-        });
     }
     public dateChange(value: Date) {
         this.agendaDate = value;

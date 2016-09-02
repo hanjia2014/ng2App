@@ -6,7 +6,6 @@ import { ActivatedRoute, Router } from '@angular/router';
     selector: 'agenda-preview',
     templateUrl: `app/templates/agenda-preview.html`,
     styles: [``],
-    directives: [],
     providers: []
 })
 export class AgendaPreviewComponent implements OnInit {

@@ -18,7 +18,6 @@ import { Tab } from './plugins/tabs/tab';
                     cursor: move;
               }
             `],
-    directives: [Tabs, Tab],
     providers: [AgendaService]
 })
 export class MainComponent extends SortableBase implements OnInit, AfterViewInit {

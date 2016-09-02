@@ -1,9 +1,9 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { ItemOfBusiness } from '../models/itemofbusiness';
 import { HearingOfEvidence } from '../models/HearingOfEvidence';
-import { HearingOfEvidenceComponent } from './hearingofevidence.component';
 import { Multiselect } from './plugins/multiselect';
 import { SELECT_DIRECTIVES } from './plugins/ng2-select/ng2-select';
+import { HearingOfEvidenceComponent } from './hearingofevidence.component';
 import { SortableBase } from './base.sortable.component';
 import { Select2Component } from './plugins/select2';
 @Component({
@@ -14,7 +14,6 @@ import { Select2Component } from './plugins/select2';
                     background-color:#ead3b5;
               }
             `],
-    directives: [HearingOfEvidenceComponent, Multiselect, SELECT_DIRECTIVES, Select2Component],
     providers: []
 })
 export class ItemOfBusinessComponent extends SortableBase implements OnInit {

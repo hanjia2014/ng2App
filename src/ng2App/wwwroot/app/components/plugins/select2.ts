@@ -4,7 +4,6 @@
     selector: 'select2',
     template: `<input id="{{id}}"/>`,
     styles: [],
-    directives: [],
     providers: []
 })
 export class Select2Component implements AfterViewInit {

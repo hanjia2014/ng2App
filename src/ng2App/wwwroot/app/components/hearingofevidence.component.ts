@@ -11,7 +11,6 @@ import { SortableBase } from './base.sortable.component';
                     cursor: move;
               }
             `],
-    directives: [MODAL_DIRECTIVES],
     providers: []
 })
 export class HearingOfEvidenceComponent extends SortableBase implements OnInit {
