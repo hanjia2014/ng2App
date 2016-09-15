@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { LocationStrategy, HashLocationStrategy }   from '@angular/common';
 import { LandingComponent }  from './landing';
 import { MainComponent } from './main.component';
 import { AppComponent } from './app.component';
@@ -23,6 +24,7 @@ import { MODAL_DIRECTIVES, ModalComponent } from './plugins/ng2-bs3-modal/ng2-bs
 @NgModule({
     imports: [BrowserModule, HttpModule, FormsModule, routing],
     declarations: [MODAL_DIRECTIVES, LandingComponent, MainComponent, AppComponent, AgendaPreviewComponent, Tabs, Tab, AgendaComponent, ItemOfBusinessComponent, DatePickerComponent, AgendaFooterComponent, HearingOfEvidenceComponent, Select2Component],
-    bootstrap: [LandingComponent]
+    bootstrap: [LandingComponent],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class AppModule { }

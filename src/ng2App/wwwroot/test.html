@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        ul {
+            list-style: none;
+        }
+
+            ul.big {
+                list-style: none;
+                font-size: 300%;
+            }
+
+        .big li::after {
+            position: relative;
+            top: 3pt;
+            content: "";
+            display: inline-block;
+            /* By using an em scale, the arrows will size with the font */
+            width: 0.4em;
+            height: 0.4em;
+            border-right: 0.2em solid black;
+            border-top: 0.2em solid black;
+            transform: rotate(45deg);
+            margin-right: 0.5em;
+        }
+
+        /* Change color */
+        .big li:hover {
+            color: red; /* For the text */
+        }
+
+            .big li:hover::after {
+                border-color: red; /* For the arrow (which is a border) */
+            }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+    </ul>
+
+    <ul class="big">
+        <li>Item1</li>
+        <li>Item2</li>
+        <li>Item3</li>
+        <li>Item4</li>
+    </ul>
+</body>
+</html>
